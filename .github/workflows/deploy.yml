@@ -20,10 +20,16 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 'v12.19.X'
+
       - name: 📦 install deps
         run: npm ci
+
       - name: 🔧 Build
         run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /personal-website
+
+      - run: touch ./out/.nojekyll
 
       - name: 🚀 Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
