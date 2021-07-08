@@ -1,4 +1,4 @@
 module.exports = {
-  "**/*.ts?(x)": () => "npm run type-check",
-  "**/*.(ts|js)?(x)": (filenames) => "eslint --fix",
+  '**/*.ts?(x)': () => 'npm run type-check',
+  '**/*.(ts|js)?(x)': (filenames) => 'npm run lint',
 };

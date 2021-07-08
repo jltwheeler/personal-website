@@ -1,0 +1,22 @@
+on:
+  push:
+    branches-ignore:
+      - 'main'
+      - 'master'
+jobs:
+  test:
+    name: 🏎️ CI - lint and test
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📚 checkout
+        uses: actions/checkout@v2
+      - name: 💚 Use node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'v12.19.X'
+      - name: 📦 install deps
+        run: npm ci
+      - name: 🛂 lint
+        run: npm run lint
+      - name: ✅ typecheck
+        run: npm run type-check
