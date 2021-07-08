@@ -1,0 +1,33 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📚 checkout
+        uses: actions/checkout@v2
+
+      - name: 💾 cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
+
+      - name: 💚 Use node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'v12.19.X'
+      - name: 📦 install deps
+        run: npm ci
+      - name: 🔧 Build
+        run: npm run build
+
+      - name: 🚀 Deploy
+        uses: JamesIve/github-pages-deploy-action@3.6.2
+        with:
+          BRANCH: gh-pages
+          FOLDER: out
+          CLEAN: true
