@@ -16,8 +16,10 @@ export const darkTheme = {
   },
 };
 
+export interface Theme {
+  colors: Record<string, string>;
+}
+
 export interface ThemeProps {
-  theme: {
-    colors: Record<string, Record<string, string>>;
-  };
+  theme: Theme;
 }
