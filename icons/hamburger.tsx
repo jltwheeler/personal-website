@@ -4,6 +4,7 @@ import { theme, ThemeProps } from '../config';
 
 const StyledSVG = styled.svg`
   display: none;
+  cursor: pointer;
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
     display: revert;
