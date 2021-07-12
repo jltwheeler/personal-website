@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 import { ThemeProps } from '../config';
-import { Hamburger } from '../icons/hamburger';
+import { Hamburger } from '../icons';
 
 const NavbarStyle = styled.nav`
   display: flex;
@@ -38,7 +38,21 @@ const NavLinksContainer = styled.ul`
   justify-content: center;
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-    display: none;
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    top: 0;
+    background: ${(props: ThemeProps) => props.theme.colors.indigo1};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transform: translateX(100%);
+
+    & > li {
+      margin: 3rem 0;
+      opacity: 0;
+    }
   }
 `;
 
