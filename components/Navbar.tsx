@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 import { ThemeProps } from '../config';
+import { Hamburger } from '../icons/hamburger';
 
 const NavbarStyle = styled.nav`
   display: flex;
@@ -14,6 +15,9 @@ const NavbarStyle = styled.nav`
   height: 5rem;
   background-color: rgba(0, 0, 0, 0);
   padding: 4rem 10rem 4rem 8rem;
+  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+    padding: 6rem 4rem;
+  }
 `;
 
 const NavLogo = styled.div`
@@ -32,6 +36,10 @@ const NavLinksContainer = styled.ul`
   text-align: center;
   display: flex;
   justify-content: center;
+
+  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+    display: none;
+  }
 `;
 
 const NavLink = styled.a`
@@ -76,20 +84,22 @@ const NavLink = styled.a`
 const links = ['home', 'about', 'blog', 'contact'];
 
 export const Navbar = () => {
+  const width = 50;
+  const height = width;
+
   return (
-    <div>
-      <NavbarStyle>
-        <NavLogo>JW</NavLogo>
-        <NavLinksContainer>
-          {links.map((link) => (
-            <li key={link}>
-              <Link href={`/${link}`} passHref={true}>
-                <NavLink> {link} </NavLink>
-              </Link>
-            </li>
-          ))}
-        </NavLinksContainer>
-      </NavbarStyle>
-    </div>
+    <NavbarStyle>
+      <NavLogo>JW</NavLogo>
+      <Hamburger style={{ width, height }} />
+      <NavLinksContainer>
+        {links.map((link) => (
+          <li key={link}>
+            <Link href={`/${link}`} passHref={true}>
+              <NavLink> {link} </NavLink>
+            </Link>
+          </li>
+        ))}
+      </NavLinksContainer>
+    </NavbarStyle>
   );
 };

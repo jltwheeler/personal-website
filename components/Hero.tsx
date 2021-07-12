@@ -8,6 +8,10 @@ const HeroSection = styled.section`
   padding-top: 6rem;
   width: 70%;
 
+  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+    padding-top: 4rem;
+  }
+
   h1 {
     font-size: 6.5rem;
     font-weight: 400;
@@ -19,6 +23,11 @@ const HeroSection = styled.section`
       font-size: 8rem;
       padding-top: 3rem;
     }
+
+    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+      font-size: 4rem;
+      padding-top: 2rem;
+    }
   }
 
   h2 {
@@ -27,6 +36,10 @@ const HeroSection = styled.section`
 
     @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
       font-size: 3rem;
+    }
+
+    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+      font-size: 1.75rem;
     }
   }
 
@@ -39,6 +52,11 @@ const HeroSection = styled.section`
 
     @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
       font-size: 3.5rem;
+      padding-bottom: 2rem;
+    }
+
+    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+      font-size: 2.25rem;
       padding-bottom: 2rem;
     }
   }
@@ -54,6 +72,11 @@ const HeroSection = styled.section`
       padding-bottom: 4rem;
       font-weight: 200;
     }
+
+    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+      font-size: 1.5rem;
+      padding-bottom: 2rem;
+    }
   }
 `;
 
@@ -61,6 +84,10 @@ const LinksContainer = styled.article`
   display: flex;
   justify-content: left;
   align-items: center;
+
+  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+    flex-direction: column;
+  }
 `;
 
 const NavLink = styled.a`
@@ -80,11 +107,21 @@ const NavLink = styled.a`
     padding: 1.25rem 3rem;
   }
 
+  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+    max-width: 12.5rem;
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+
   &:not(:first-child) {
     margin: 0 5rem;
 
     @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
       margin: 0 7.5rem;
+    }
+
+    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+      margin: 3rem 0;
     }
   }
 
