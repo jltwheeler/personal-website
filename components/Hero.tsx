@@ -14,11 +14,20 @@ const HeroSection = styled.section`
     color: ${(props: ThemeProps) => props.theme.colors.indigo10};
     letter-spacing: 3px;
     padding-top: 2rem;
+
+    @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
+      font-size: 8rem;
+      padding-top: 3rem;
+    }
   }
 
   h2 {
     font-size: 2rem;
     font-weight: 200;
+
+    @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
+      font-size: 3rem;
+    }
   }
 
   h3 {
@@ -27,6 +36,11 @@ const HeroSection = styled.section`
     color: ${(props: ThemeProps) => props.theme.colors.indigo11};
     font-style: italic;
     padding-bottom: 1rem;
+
+    @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
+      font-size: 3.5rem;
+      padding-bottom: 2rem;
+    }
   }
 
   p {
@@ -34,6 +48,12 @@ const HeroSection = styled.section`
     font-weight: 200;
     padding-bottom: 2.5rem;
     line-height: 3rem;
+
+    @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
+      font-size: 2rem;
+      padding-bottom: 4rem;
+      font-weight: 200;
+    }
   }
 `;
 
@@ -55,8 +75,17 @@ const NavLink = styled.a`
   border-radius: 7px;
   padding: 1rem 2.5rem;
 
+  @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
+    font-size: 2rem;
+    padding: 1.25rem 3rem;
+  }
+
   &:not(:first-child) {
     margin: 0 5rem;
+
+    @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
+      margin: 0 7.5rem;
+    }
   }
 
   &:hover {
@@ -70,6 +99,11 @@ const NavLink = styled.a`
     border-color: ${(props: ThemeProps) => props.theme.colors.indigo7};
     color: ${(props: ThemeProps) => props.theme.colors.indigo12};
   }
+`;
+
+const Accent = styled.span`
+  color: ${(props: ThemeProps) => props.theme.colors.indigo11};
+  font-weight: 500;
 `;
 
 export const Hero = () => {
@@ -86,11 +120,14 @@ export const Hero = () => {
         I have a deep passion for technology, problem solving and learning.
       </h3>
       <p>
-        I&apos;m a software engineer based in London who specialises in
-        delivering web applications across the full stack. I also am an AWS
-        Certified Developer - Associate who really enjoys building native
-        solutions with AWS. Currently I work at By Miles - a car insurance you
-        pay by the mile.
+        I&apos;m a software engineer based in <Accent>London</Accent> who
+        specialises in delivering web applications across the full stack. I also
+        am an <Accent>AWS Certified Developer - Associate </Accent> who really
+        enjoys building cloud native solutions with AWS. Currently I work at{' '}
+        <i>
+          <Accent>By Miles</Accent>
+        </i>{' '}
+        - a car insurance you pay by the mile.
       </p>
       <p>
         If you want to learn more about me or read what I&apos;ve been up to

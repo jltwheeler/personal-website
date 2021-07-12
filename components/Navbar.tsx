@@ -8,7 +8,6 @@ const NavbarStyle = styled.nav`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  font-size: 2rem;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -24,7 +23,7 @@ const NavLogo = styled.div`
   user-select: none;
   color: ${(props: ThemeProps) => props.theme.colors.indigo11};
   background: ${(props: ThemeProps) => props.theme.colors.indigo4};
-  border-radius: 50%;
+  border-radius: 15%;
   padding: 0.75rem;
 `;
 
@@ -36,6 +35,7 @@ const NavLinksContainer = styled.ul`
 `;
 
 const NavLink = styled.a`
+  font-size: 2rem;
   user-select: none;
   padding: 1.5rem;
   position: relative;
@@ -45,6 +45,10 @@ const NavLink = styled.a`
   color: inherit;
   font-weight: 300;
   transition: all 0.5s;
+
+  @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
+    font-size: 2.5rem;
+  }
 
   &:after {
     transition: all 0.5s;

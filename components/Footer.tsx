@@ -12,36 +12,52 @@ const FooterStyle = styled.footer`
   align-items: center;
   height: 5rem;
   width: 100%;
-  padding-bottom: 2.5rem;
 
   span {
-    color: ${(props: ThemeProps) => props.theme.colors.indigo9};
+    color: ${(props: ThemeProps) => props.theme.colors.indigo10};
     font-weight: 400;
     font-size: 1.5rem;
     margin-right: 2rem;
+
+    @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
+      font-size: 2rem;
+    }
   }
 `;
 
 export const Footer = () => {
   const theme = useTheme() as Theme;
-  const width = 30;
-  const height = 30;
+  const width = 32.5;
+  const height = width;
   const now = new Date();
 
   return (
     <FooterStyle>
-      <LinkedIn
-        style={{ width, height, marginRight: width / 2 }}
-        color={theme.colors.indigo9}
-      />
-      <Gmail
-        style={{ width, height, marginRight: width / 2 }}
-        color={theme.colors.indigo9}
-      />
-      <GitHub
-        style={{ width, height, marginRight: width / 2 }}
-        color={theme.colors.indigo9}
-      />
+      <a
+        target="_blank"
+        href="https://www.linkedin.com/in/joshuawheeler93/"
+        rel="noreferrer"
+      >
+        <LinkedIn
+          style={{ width, height, marginRight: width / 2 }}
+          color={theme.colors.indigo8}
+          onHoverColor={theme.colors.indigo9}
+        />
+      </a>
+      <a target="_blank" href="mailto:jltwheeler@gmail.com" rel="noreferrer">
+        <Gmail
+          style={{ width, height, marginRight: width / 2 }}
+          color={theme.colors.indigo8}
+          onHoverColor={theme.colors.indigo9}
+        />
+      </a>
+      <a target="_blank" href="https://github.com/jltwheeler" rel="noreferrer">
+        <GitHub
+          style={{ width, height, marginRight: width / 2 }}
+          color={theme.colors.indigo8}
+          onHoverColor={theme.colors.indigo9}
+        />
+      </a>
       <span>Josh Wheeler &copy; {now.getFullYear()}</span>
     </FooterStyle>
   );
