@@ -34,6 +34,10 @@ const FooterStyle = styled.footer`
       margin-bottom: 2.5rem;
     }
 
+    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
+      font-size: 1.75rem;
+    }
+
     @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
       font-size: 2rem;
     }

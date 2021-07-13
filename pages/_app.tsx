@@ -10,6 +10,23 @@ const GlobalStyle = createGlobalStyle`
     color: ${(props: ThemeProps) => props.theme.colors.indigo12};
   }
 
+  /* scrollbar */
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: ${(props: ThemeProps) => props.theme.colors.indigo9};
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: ${(props: ThemeProps) => props.theme.colors.indigo10};
+  }
+
   /* Animations */
   @keyframes linkFade {
     from {

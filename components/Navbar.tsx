@@ -78,6 +78,9 @@ const NavLink = styled.a`
   @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
     font-size: 2.5rem;
   }
+  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
+    font-size: 3rem;
+  }
 
   &:after {
     transition: all 0.5s;

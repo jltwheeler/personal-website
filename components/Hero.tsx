@@ -24,6 +24,11 @@ const HeroSection = styled.section`
       padding-top: 3rem;
     }
 
+    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
+      font-size: 6rem;
+      padding-top: 3rem;
+    }
+
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
       font-size: 4rem;
       padding-top: 2rem;
@@ -36,6 +41,10 @@ const HeroSection = styled.section`
 
     @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
       font-size: 3rem;
+    }
+
+    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
+      padding-top: 2rem;
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
@@ -53,6 +62,11 @@ const HeroSection = styled.section`
     @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
       font-size: 3.5rem;
       padding-bottom: 2rem;
+    }
+
+    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
+      font-size: 3rem;
+      padding-top: 2rem;
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
@@ -73,6 +87,11 @@ const HeroSection = styled.section`
       font-weight: 200;
     }
 
+    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
+      font-size: 1.75rem;
+      padding-top: 2.5rem;
+    }
+
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
       font-size: 1.5rem;
       padding-bottom: 2rem;
@@ -84,9 +103,11 @@ const LinksContainer = styled.article`
   display: flex;
   justify-content: left;
   align-items: center;
+  margin-bottom: 5rem;
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
     flex-direction: column;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -105,6 +126,11 @@ const NavLink = styled.a`
   @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
     font-size: 2rem;
     padding: 1.25rem 3rem;
+  }
+
+  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
   }
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
