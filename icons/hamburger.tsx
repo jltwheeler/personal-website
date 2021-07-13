@@ -1,25 +1,23 @@
-import React, { useRef } from 'react';
+import React, { Dispatch, SetStateAction, useRef } from 'react';
 import styled from 'styled-components';
-import { theme, ThemeProps } from '../config';
+import { ThemeProps } from '../config';
 
 const StyledSVG = styled.svg`
   display: none;
   cursor: pointer;
 
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
     display: revert;
   }
 `;
 
 export const Hamburger: React.FC<{
   style: Record<string, string | number>;
-  color?: string;
-  onHoverColor?: string;
-}> = ({
-  color = theme.colors.indigo8,
-  onHoverColor = theme.colors.indigo9,
-  style,
-}) => {
+  navbarOpen: boolean;
+  setNavbarOpen: Dispatch<SetStateAction<boolean>>;
+  color: string;
+  onHoverColor: string;
+}> = ({ navbarOpen, setNavbarOpen, color, onHoverColor, style }) => {
   const ref = useRef<SVGPathElement>(null);
 
   return (
@@ -28,6 +26,7 @@ export const Hamburger: React.FC<{
       viewBox="0 0 32 32"
       xmlSpace="preserve"
       xmlns="http://www.w3.org/2000/svg"
+      onClick={() => setNavbarOpen(!navbarOpen)}
       onMouseEnter={() => {
         if (ref.current) {
           ref.current.style.fill = onHoverColor;

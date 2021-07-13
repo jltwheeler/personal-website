@@ -1,8 +1,9 @@
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import Link from 'next/link';
 
-import { ThemeProps } from '../config';
-import { Hamburger } from '../icons';
+import { Theme, ThemeProps } from '../config';
+import { Cross, Hamburger } from '../icons';
+import { useState } from 'react';
 
 const NavbarStyle = styled.nav`
   display: flex;
@@ -15,6 +16,7 @@ const NavbarStyle = styled.nav`
   height: 5rem;
   background-color: rgba(0, 0, 0, 0);
   padding: 4rem 10rem 4rem 8rem;
+
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
     padding: 6rem 4rem;
   }
@@ -29,6 +31,10 @@ const NavLogo = styled.div`
   background: ${(props: ThemeProps) => props.theme.colors.indigo4};
   border-radius: 15%;
   padding: 0.75rem;
+
+  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const NavLinksContainer = styled.ul`
@@ -37,7 +43,7 @@ const NavLinksContainer = styled.ul`
   display: flex;
   justify-content: center;
 
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
     position: absolute;
     right: 0;
     height: 100vh;
@@ -48,6 +54,7 @@ const NavLinksContainer = styled.ul`
     align-items: center;
     width: 100%;
     transform: translateX(100%);
+    transition: transform 0.5s ease-in;
 
     & > li {
       margin: 3rem 0;
@@ -98,16 +105,41 @@ const NavLink = styled.a`
 const links = ['home', 'about', 'blog', 'contact'];
 
 export const Navbar = () => {
+  const theme = useTheme() as Theme;
+  const [navbarOpen, setNavbarOpen] = useState(false);
+
   const width = 50;
   const height = width;
 
   return (
     <NavbarStyle>
       <NavLogo>JW</NavLogo>
-      <Hamburger style={{ width, height }} />
-      <NavLinksContainer>
-        {links.map((link) => (
-          <li key={link}>
+      <Hamburger
+        navbarOpen={navbarOpen}
+        setNavbarOpen={setNavbarOpen}
+        style={{ width, height }}
+        color={theme.colors.indigo8}
+        onHoverColor={theme.colors.indigo9}
+      />
+      <NavLinksContainer
+        style={{ ...(navbarOpen && { transform: 'translateX(0%)' }) }}
+      >
+        <Cross
+          navbarOpen={navbarOpen}
+          setNavbarOpen={setNavbarOpen}
+          style={{ width, height }}
+          color={theme.colors.indigo12}
+          onHoverColor={theme.colors.indigo11}
+        />
+        {links.map((link, i) => (
+          <li
+            key={link}
+            style={{
+              ...(navbarOpen && {
+                animation: `linkFade 0.5s ease forwards ${i / 7 + 0.75}s`,
+              }),
+            }}
+          >
             <Link href={`/${link}`} passHref={true}>
               <NavLink> {link} </NavLink>
             </Link>

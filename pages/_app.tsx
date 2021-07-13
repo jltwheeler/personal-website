@@ -9,6 +9,18 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${(props: ThemeProps) => props.theme.colors.indigo1};
     color: ${(props: ThemeProps) => props.theme.colors.indigo12};
   }
+
+  /* Animations */
+  @keyframes linkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {
