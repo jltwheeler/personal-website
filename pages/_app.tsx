@@ -18,13 +18,13 @@ const GlobalStyle = createGlobalStyle`
     background-color: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: ${(props: ThemeProps) => props.theme.colors.indigo9};
+    background-color: ${(props: ThemeProps) => props.theme.colors.indigo10};
     border-radius: 20px;
     border: 6px solid transparent;
     background-clip: content-box;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background-color: ${(props: ThemeProps) => props.theme.colors.indigo10};
+    background-color: ${(props: ThemeProps) => props.theme.colors.indigo11};
   }
 
   /* Animations */

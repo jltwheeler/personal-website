@@ -1,5 +1,6 @@
 import styled, { useTheme } from 'styled-components';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { Theme, ThemeProps } from '../config';
 import { Cross, Hamburger } from '../icons';
@@ -71,7 +72,8 @@ const NavLink = styled.a`
   margin: 0 1rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: inherit;
+  color: ${(props) =>
+    props.className === 'active' ? props.theme.colors.indigo11 : 'inherit'};
   font-weight: 300;
   transition: all 0.5s;
 
@@ -89,7 +91,7 @@ const NavLink = styled.a`
     left: 0;
     right: 0;
     margin: auto;
-    width: 0%;
+    width: ${(props) => (props.className === 'active' ? '100%' : '0%')};
     content: '.';
     color: transparent;
     background: ${(props: ThemeProps) => props.theme.colors.indigo11};
@@ -105,11 +107,17 @@ const NavLink = styled.a`
   }
 `;
 
-const links = ['home', 'about', 'blog', 'contact'];
+const links = [
+  { title: 'home', path: '/' },
+  { title: 'about', path: '/about' },
+  { title: 'blog', path: '/blog' },
+  { title: 'contact', path: '/contact' },
+];
 
 export const Navbar = () => {
   const theme = useTheme() as Theme;
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const router = useRouter();
 
   const width = 50;
   const height = width;
@@ -136,15 +144,19 @@ export const Navbar = () => {
         />
         {links.map((link, i) => (
           <li
-            key={link}
+            key={link.title}
             style={{
               ...(navbarOpen && {
                 animation: `linkFade 0.5s ease forwards ${i / 7 + 0.75}s`,
               }),
             }}
           >
-            <Link href={`/${link}`} passHref={true}>
-              <NavLink> {link} </NavLink>
+            <Link href={`${link.path}`} passHref={true}>
+              <NavLink
+                className={router.pathname === link.path ? 'active' : ''}
+              >
+                {link.title}
+              </NavLink>
             </Link>
           </li>
         ))}
