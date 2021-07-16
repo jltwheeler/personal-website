@@ -194,7 +194,7 @@ export const Hero = () => {
       </p>
       <p>
         If you want to learn more about me or read what I&apos;ve been up to
-        please feel free to click the links below:
+        click the links below.
       </p>
 
       <LinksContainer>
