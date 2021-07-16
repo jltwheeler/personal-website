@@ -8,10 +8,15 @@
     "start": "next start",
     "lint": "eslint --fix",
     "format": "prettier --write \"**/*.(ts|tsx)\"",
-    "type-check": "tsc --project tsconfig.json --pretty --noEmit"
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "create-new-blog": "node scripts/create-new-blog.js"
   },
   "dependencies": {
     "@radix-ui/colors": "^0.1.7",
+    "chalk": "^2.4.2",
+    "clear": "^0.1.0",
+    "inquirer": "^8.1.2",
+    "moment": "^2.29.1",
     "next": "11.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
