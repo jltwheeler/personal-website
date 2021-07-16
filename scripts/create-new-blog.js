@@ -40,7 +40,7 @@ const path = require('path');
         throw new Error(`🔥🔥🔥 Sorry, the blog ${slug} already exists.`);
       }
 
-      const date = moment().format('MMMM dddd YYYY');
+      const date = moment().format('MMMM DD YYYY');
       const metaData = [
         '---',
         `title: ${title}`,
