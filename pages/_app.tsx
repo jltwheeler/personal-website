@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 
 import { darkTheme, ThemeProps } from '../config';
 import '../styles/globals.css';
+import '../styles/prism-theme.css';
 
 const GlobalStyle = createGlobalStyle`
   body {
