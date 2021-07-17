@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import styled from 'styled-components';
 import matter from 'gray-matter';
 import marked from 'marked';
 import prism from 'prismjs';
@@ -7,8 +6,7 @@ import readingTime from 'reading-time';
 import fs from 'fs';
 import path from 'path';
 
-import { Container, Footer, Header, Navbar } from '../../components';
-import { ThemeProps } from '../../config';
+import { Container, Footer, Header, Main, Navbar } from '../../components';
 
 marked.setOptions({
   highlight: (code, lang) => {
@@ -19,18 +17,6 @@ marked.setOptions({
     }
   },
 });
-
-const MainStyle = styled.main`
-  min-height: 100vh;
-  overflow: hidden;
-  display: block;
-  position: relative;
-  padding-bottom: 5rem;
-
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-    padding-bottom: 10rem;
-  }
-`;
 
 export const getStaticPaths = async () => {
   const files = await fs.promises.readdir('posts');
@@ -88,7 +74,7 @@ const Post: React.FC<PostProps> = ({ content, data }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <MainStyle>
+      <Main>
         <Navbar />
         <Container>
           <Header title={data.title} />
@@ -96,7 +82,7 @@ const Post: React.FC<PostProps> = ({ content, data }) => {
           <div dangerouslySetInnerHTML={{ __html: content }} />
         </Container>
         <Footer />
-      </MainStyle>
+      </Main>
     </>
   );
 };

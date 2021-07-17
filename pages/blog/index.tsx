@@ -6,21 +6,9 @@ import fs from 'fs';
 import path from 'path';
 import readingTime from 'reading-time';
 
-import { Container, Footer, Header, Navbar } from '../../components';
+import { Container, Footer, Header, Main, Navbar } from '../../components';
 import { ThemeProps } from '../../config';
 import { BlogMetaData } from './[slug]';
-
-const MainStyle = styled.main`
-  min-height: 100vh;
-  overflow: hidden;
-  display: block;
-  position: relative;
-  padding-bottom: 5rem;
-
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-    padding-bottom: 10rem;
-  }
-`;
 
 const BlogCard = styled.article`
   margin: 1rem 0;
@@ -28,7 +16,6 @@ const BlogCard = styled.article`
 
 const BlogLink = styled.a`
   font-size: 3rem;
-  text-transform: uppercase;
   text-decoration: none;
   color: ${(props) => props.theme.colors.indigo10};
   font-weight: 400;
@@ -67,7 +54,7 @@ const Blog: React.FC<BlogProps> = ({ slugs, matters }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <MainStyle>
+      <Main>
         <Navbar />
         <Container>
           <Header title="Blog" />
@@ -83,7 +70,7 @@ const Blog: React.FC<BlogProps> = ({ slugs, matters }) => {
           ))}
         </Container>
         <Footer />
-      </MainStyle>
+      </Main>
     </>
   );
 };

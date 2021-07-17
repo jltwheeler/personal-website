@@ -1,20 +1,6 @@
 import Head from 'next/head';
-import styled from 'styled-components';
 
-import { Footer, Hero, Navbar } from '../components';
-import { ThemeProps } from '../config';
-
-const MainStyle = styled.main`
-  min-height: 100vh;
-  overflow: hidden;
-  display: block;
-  position: relative;
-  padding-bottom: 5rem;
-
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-    padding-bottom: 10rem;
-  }
-`;
+import { Footer, Hero, Main, Navbar } from '../components';
 
 export default function Home() {
   return (
@@ -25,11 +11,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <MainStyle>
+      <Main>
         <Navbar />
         <Hero />
         <Footer />
-      </MainStyle>
+      </Main>
     </>
   );
 }
