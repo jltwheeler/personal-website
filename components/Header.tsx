@@ -14,15 +14,19 @@ const HR = styled.div`
   background: ${(props: ThemeProps) => props.theme.colors.indigo11};
 `;
 
+const HeaderStyle = styled.header`
+  margin-bottom: 4rem;
+`;
+
 interface HeaderProps {
   title: string;
 }
 
 export const Header: React.FC<HeaderProps> = ({ title }) => {
   return (
-    <>
+    <HeaderStyle>
       <H1>{title}</H1>
       <HR />
-    </>
+    </HeaderStyle>
   );
 };
