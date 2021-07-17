@@ -44,11 +44,7 @@ const HeroSection = styled.section`
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
-      padding-top: 2rem;
-    }
-
-    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-      font-size: 1.75rem;
+      padding-top: 1.5rem;
     }
   }
 
@@ -71,7 +67,7 @@ const HeroSection = styled.section`
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
       font-size: 2.25rem;
-      padding-bottom: 2rem;
+      padding-bottom: 1.5rem;
     }
   }
 
@@ -93,8 +89,8 @@ const HeroSection = styled.section`
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-      font-size: 1.5rem;
-      padding-bottom: 2rem;
+      font-size: 1.75rem;
+      padding-bottom: 1rem;
     }
   }
 `;
@@ -107,7 +103,7 @@ const LinksContainer = styled.article`
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
   }
 `;
 
