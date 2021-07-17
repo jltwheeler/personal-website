@@ -63,6 +63,7 @@ const BlogCard = styled.article`
 
   .metadata {
     font-size: 1.5rem;
+    color: ${(props) => props.theme.colors.indigo11};
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
       font-size: 1.25rem;
@@ -113,10 +114,12 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
               <Link key={blog.slug} href={`blog/${blog.slug}`} passHref={true}>
                 <BlogCard>
                   <a>{blog.title}</a>
-                  <p className="description">{blog.description}</p>
                   <p className="metadata">
-                    {blog.date} | {blog.readTime}
+                    <i>
+                      {blog.date} | {blog.readTime}
+                    </i>
                   </p>
+                  <p className="description">{blog.description}</p>
                 </BlogCard>
               </Link>
             ))}
