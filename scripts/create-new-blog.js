@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const clear = require('clear');
 const moment = require('moment');
 const chalk = require('chalk');
+const slugify = require('slugify');
 
 const fs = require('fs');
 const path = require('path');
@@ -27,7 +28,7 @@ const path = require('path');
     ])
     .then((answers) => {
       const { title, description } = answers;
-      const slug = title.toLowerCase().split(' ').join('-') + '.md';
+      const slug = slugify(title, { lower: true }) + '.md';
 
       let newBlogPath;
       try {
@@ -40,9 +41,12 @@ const path = require('path');
         throw new Error(`🔥🔥🔥 Sorry, the blog ${slug} already exists.`);
       }
 
+      const id = fs.readdirSync(path.join(process.cwd(), 'posts')).length + 1;
+
       const date = moment().format('MMMM DD YYYY');
       const metaData = [
         '---',
+        `id: ${id}`,
         `title: ${title}`,
         `description: ${description}`,
         `date: ${date}`,
