@@ -32,6 +32,7 @@ export const getStaticPaths = async () => {
 };
 
 export interface BlogMetaData {
+  id: number;
   title: string;
   description: string;
   date: string;
@@ -71,7 +72,7 @@ const Post: React.FC<PostProps> = ({ content, data }) => {
       <Head>
         <title>{`Josh Wheeler | ${data.title}`}</title>
         <meta title={data.title} name={data.title} content={data.description} />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/jw-favicon.svg" />
       </Head>
 
       <Main>

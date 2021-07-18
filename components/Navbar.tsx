@@ -23,15 +23,9 @@ const NavbarStyle = styled.nav`
   }
 `;
 
-const NavLogo = styled.div`
-  font-size: 3rem;
-  letter-spacing: 3px;
-  font-weight: 400;
-  user-select: none;
-  color: ${(props: ThemeProps) => props.theme.colors.indigo11};
-  background: ${(props: ThemeProps) => props.theme.colors.indigo4};
-  border-radius: 15%;
-  padding: 0.75rem;
+const NavLogo = styled.img`
+  width: 7.5rem;
+  height: 7.5rem;
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
     font-size: 2.5rem;
@@ -124,7 +118,7 @@ export const Navbar = () => {
 
   return (
     <NavbarStyle>
-      <NavLogo>JW</NavLogo>
+      <NavLogo src="jw-logo-dark.svg" alt="JW Logo Dark" />
       <Hamburger
         navbarOpen={navbarOpen}
         setNavbarOpen={setNavbarOpen}

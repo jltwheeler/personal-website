@@ -8,7 +8,7 @@ export default function Home() {
       <Head>
         <title>Josh Wheeler</title>
         <meta name="description" content="Josh Wheeler's personal website" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/jw-favicon.svg" />
       </Head>
 
       <Main>
