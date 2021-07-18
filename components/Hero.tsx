@@ -37,7 +37,7 @@ const HeroSection = styled.section`
 
   h2 {
     font-size: 2rem;
-    font-weight: 200;
+    font-weight: 300;
 
     @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
       font-size: 3rem;
@@ -73,14 +73,14 @@ const HeroSection = styled.section`
 
   p {
     font-size: 1.8rem;
-    font-weight: 200;
+    font-weight: 300;
     padding-bottom: 2.5rem;
     line-height: 3rem;
 
     @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
       font-size: 2rem;
       padding-bottom: 4rem;
-      font-weight: 200;
+      font-weight: 300;
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
@@ -180,9 +180,9 @@ export const Hero = () => {
       </h3>
       <p>
         I&apos;m a software engineer based in <Accent>London</Accent> who
-        specialises in delivering web applications across the full stack. I also
-        am an <Accent>AWS Certified Developer - Associate </Accent> who really
-        enjoys building cloud native solutions with AWS. Currently I work at{' '}
+        specialises in developing full stack web applications. I'm also an{' '}
+        <Accent>AWS Certified Developer - Associate </Accent> and really enjoy
+        building cloud native solutions with AWS. Currently I work at{' '}
         <i>
           <Accent>By Miles</Accent>
         </i>{' '}
