@@ -102,7 +102,7 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
       <Head>
         <title>Josh Wheeler | Blog</title>
         <meta name="description" content="Josh Wheeler's personal tech blog." />
-        <link rel="icon" href="/jw-favicon.vg" />
+        <link rel="icon" href="/jw-favicon.svg" />
       </Head>
 
       <Main>

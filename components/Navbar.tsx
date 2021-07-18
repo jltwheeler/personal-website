@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import { Theme, ThemeProps } from '../config';
 import { Cross, Hamburger } from '../icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const NavbarStyle = styled.nav`
   display: flex;
@@ -111,14 +111,20 @@ const links = [
 export const Navbar = () => {
   const theme = useTheme() as Theme;
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [iconPath, setIconPath] = useState('/jw-logo-dark.svg');
   const router = useRouter();
 
   const width = 50;
   const height = width;
 
+  useEffect(() => {
+    setIconPath(`${window.location.origin}/jw-logo-dark.svg`);
+    console.log(iconPath);
+  }, [iconPath]);
+
   return (
     <NavbarStyle>
-      <NavLogo src="jw-logo-dark.svg" alt="JW Logo Dark" />
+      <NavLogo src={iconPath} alt="JW Logo Dark" />
       <Hamburger
         navbarOpen={navbarOpen}
         setNavbarOpen={setNavbarOpen}

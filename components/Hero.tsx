@@ -180,7 +180,7 @@ export const Hero = () => {
       </h3>
       <p>
         I&apos;m a software engineer based in <Accent>London</Accent> who
-        specialises in developing full stack web applications. I'm also an{' '}
+        specialises in developing full stack web applications. I&apos;m also an{' '}
         <Accent>AWS Certified Developer - Associate </Accent> and really enjoy
         building cloud native solutions with AWS. Currently I work at{' '}
         <i>
