@@ -20,9 +20,9 @@ const HR = styled.div`
 `;
 
 const HeaderStyle = styled.header`
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 `;
 
