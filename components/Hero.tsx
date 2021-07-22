@@ -37,18 +37,14 @@ const HeroSection = styled.section`
 
   h2 {
     font-size: 2rem;
-    font-weight: 200;
+    font-weight: 300;
 
     @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
       font-size: 3rem;
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
-      padding-top: 2rem;
-    }
-
-    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-      font-size: 1.75rem;
+      padding-top: 1.5rem;
     }
   }
 
@@ -71,20 +67,20 @@ const HeroSection = styled.section`
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
       font-size: 2.25rem;
-      padding-bottom: 2rem;
+      padding-bottom: 1.5rem;
     }
   }
 
   p {
     font-size: 1.8rem;
-    font-weight: 200;
+    font-weight: 300;
     padding-bottom: 2.5rem;
     line-height: 3rem;
 
     @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
       font-size: 2rem;
       padding-bottom: 4rem;
-      font-weight: 200;
+      font-weight: 300;
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
@@ -93,8 +89,8 @@ const HeroSection = styled.section`
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-      font-size: 1.5rem;
-      padding-bottom: 2rem;
+      font-size: 1.75rem;
+      padding-bottom: 1rem;
     }
   }
 `;
@@ -107,7 +103,7 @@ const LinksContainer = styled.article`
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
   }
 `;
 
@@ -184,9 +180,9 @@ export const Hero = () => {
       </h3>
       <p>
         I&apos;m a software engineer based in <Accent>London</Accent> who
-        specialises in delivering web applications across the full stack. I also
-        am an <Accent>AWS Certified Developer - Associate </Accent> who really
-        enjoys building cloud native solutions with AWS. Currently I work at{' '}
+        specialises in developing full stack web applications. I&apos;m also an{' '}
+        <Accent>AWS Certified Developer - Associate </Accent> and really enjoy
+        building cloud native solutions with AWS. Currently I work at{' '}
         <i>
           <Accent>By Miles</Accent>
         </i>{' '}
@@ -194,7 +190,7 @@ export const Hero = () => {
       </p>
       <p>
         If you want to learn more about me or read what I&apos;ve been up to
-        please feel free to click the links below:
+        click the links below.
       </p>
 
       <LinksContainer>
