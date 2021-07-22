@@ -27,8 +27,14 @@ const NavLogo = styled.img`
   width: 7.5rem;
   height: 7.5rem;
 
+  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
+    width: 5rem;
+    height: 5rem;
+  }
+
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-    font-size: 2.5rem;
+    width: 6.5rem;
+    height: 6.5rem;
   }
 `;
 

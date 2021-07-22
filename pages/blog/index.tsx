@@ -54,7 +54,8 @@ const BlogCard = styled.article`
   }
 
   .description {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    padding: 1rem 0;
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
       font-size: 1.6rem;
