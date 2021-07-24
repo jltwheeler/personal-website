@@ -15,7 +15,7 @@ const BlogCard = styled.article`
   margin: 1rem 0;
   color: ${(props: ThemeProps) => props.theme.colors.indigo12};
   background: ${(props: ThemeProps) => props.theme.colors.indigo3};
-  border: 1px solid ${(props: ThemeProps) => props.theme.colors.indigo4};
+  border: 1px solid ${(props: ThemeProps) => props.theme.colors.indigo7};
   border-radius: 1rem;
   padding: 1.5rem 2.5rem;
   margin: 3rem 0;
