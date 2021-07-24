@@ -14,7 +14,7 @@ const HeroSection = styled.section`
 
   h1 {
     font-size: 6.5rem;
-    font-weight: 400;
+    font-weight: 500;
     color: ${(props: ThemeProps) => props.theme.colors.indigo10};
     letter-spacing: 3px;
     padding-top: 2rem;
@@ -25,18 +25,20 @@ const HeroSection = styled.section`
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
-      font-size: 6rem;
+      font-size: 6.5rem;
       padding-top: 3rem;
+      line-height: 1.3;
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-      font-size: 4rem;
+      font-size: 5.5rem;
       padding-top: 2rem;
+      line-height: 1.2;
     }
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 300;
 
     @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
@@ -44,13 +46,13 @@ const HeroSection = styled.section`
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
-      padding-top: 1.5rem;
+      font-size: 2.5rem;
     }
   }
 
   h3 {
     font-size: 3rem;
-    font-weight: 300;
+    font-weight: 400;
     color: ${(props: ThemeProps) => props.theme.colors.indigo11};
     font-style: italic;
     padding-bottom: 1rem;
@@ -63,19 +65,21 @@ const HeroSection = styled.section`
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
       font-size: 3rem;
       padding-top: 2rem;
+      line-height: 1.3;
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-      font-size: 2.25rem;
+      font-size: 2.5rem;
       padding-bottom: 1.5rem;
+      line-height: 1.25;
     }
   }
 
   p {
     font-size: 1.8rem;
     font-weight: 300;
-    padding-bottom: 2.5rem;
-    line-height: 3rem;
+    padding: 1rem 0;
+    line-height: 1.6;
 
     @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
       font-size: 2rem;
@@ -85,12 +89,12 @@ const HeroSection = styled.section`
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
       font-size: 1.75rem;
-      padding-top: 2.5rem;
+      line-height: 1.5;
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
       font-size: 1.75rem;
-      padding-bottom: 1rem;
+      padding: 0.5rem 0;
     }
   }
 `;
@@ -99,7 +103,7 @@ const LinksContainer = styled.article`
   display: flex;
   justify-content: left;
   align-items: center;
-  margin-bottom: 5rem;
+  margin: 2.5rem 0;
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
     flex-direction: column;
@@ -117,7 +121,9 @@ const NavLink = styled.a`
   letter-spacing: 2px;
   font-size: 1.5rem;
   border-radius: 7px;
-  padding: 1rem 2.5rem;
+  padding: 1.5rem 2.5rem;
+  min-width: 12.5rem;
+  text-align: center;
 
   @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
     font-size: 2rem;
@@ -126,12 +132,12 @@ const NavLink = styled.a`
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
     font-size: 1.5rem;
-    padding: 1.5rem 2rem;
+    min-width: 20rem;
+    padding: 2.5rem 2rem;
   }
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-    max-width: 12.5rem;
-    padding: 1.5rem 2rem;
+    min-width: 15rem;
     text-align: center;
   }
 
@@ -167,8 +173,8 @@ const Accent = styled.span`
 
 export const Hero = () => {
   const links = [
-    { label: 'learn more', route: 'about' },
-    { label: 'my blog', route: 'blog' },
+    { label: 'about me', route: 'about' },
+    { label: 'blog', route: 'blog' },
   ];
 
   return (
@@ -179,7 +185,7 @@ export const Hero = () => {
         I have a deep passion for technology, problem solving and learning.
       </h3>
       <p>
-        I&apos;m a software engineer based in <Accent>London</Accent> who
+        I&apos;m a software engineer based in <Accent>London</Accent>, who
         specialises in developing full stack web applications. I&apos;m also an{' '}
         <Accent>AWS Certified Developer - Associate </Accent> and really enjoy
         building cloud native solutions with AWS. Currently I work at{' '}
