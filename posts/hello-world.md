@@ -178,7 +178,7 @@ engineer requires in this modern world.
 
 ### Learn Git
 
-[Create][create] a free GitHub account and start getting into the habit of
+[Create a free GitHub account][create] and start getting into the habit of
 committing _**EVERYTHING**_ you do. Have a look at [this link][git] for an
 awesome list of git commands displayed by user stories.
 
@@ -199,14 +199,14 @@ experience. Have a look into using zsh (default shell with newer Macs) and the
 
 ### Syntax FM Podcast
 
-[Syntax][syntax] favourite web development podcast. Again, in such a
+[Syntax FM][syntax] favourite web development podcast. Again, in such a
 fast-moving industry, it's hard to stay on top of all the latest news,
 frameworks and tooling. Hosted by [Wes Bos][wbos] and [Scott Tolinski][st],
 the podcast keeps you up to speed with everything that's going on and there
 are many deep dive episodes to help beginners with certain topics. Definitely
 subscribe to this and listen to some older episodes.
 
-### [AWS Certified Developer - Associate][aws]
+### AWS Certified Developer - Associate
 
 Let's face it, with the rapid growth of the cloud in recent years, more
 companies are hiring full stack developers with cloud experience. I know...
@@ -218,11 +218,11 @@ Learning cloud was possibly the most difficult part for me. Yes there are a lot
 of services to learn, but the hard part was understanding the underlying domain
 knowledge of infrastructure and networking.
 
-I recommend not jumping into AWS without the aid of a course. This Udemy course
-helped me get a better grasp of cloud in general, and also helped me obtain the
-AWS certification too. As a bonus, I recommend subscribing to the [Be A Better
-Dev][babd] channel - he is very underrated youtuber who delivers high quality
-cloud tutorial content.
+I recommend not jumping into AWS without the aid of a course. [Stephane
+Maarek's Udemy course][aws] helped me get a better grasp of cloud in general,
+and also helped me obtain the AWS certification too. As a bonus, I recommend
+subscribing to the [Be A Better Dev][babd] channel - he is very underrated
+youtuber who delivers high quality cloud tutorial content.
 
 ### Learning How To Google
 
@@ -235,7 +235,7 @@ the language, library and error message in your search goes a long way.
 
 That was a long first blog, so I'll wrap it up here. I hope someone out
 there will be able to benefit from some of this advice. If the blog _was_
-helpful or you just have a general question, please feel free to [get in touch](mailto:jltwheeler@gmail.com?subject=[Blog]).
+helpful or you just have a general question, please [get in touch](mailto:jltwheeler@gmail.com?subject=[Blog]).
 Otherwise, see you in my next post!
 
 ![](https://media.giphy.com/media/3o6EhGvKschtbrRjX2/giphy.gif)
