@@ -3,20 +3,10 @@ import styled from 'styled-components';
 import { ThemeProps } from '../config';
 
 const H1 = styled.h1`
-  font-size: 5rem;
-  font-weight: 400;
+  font-size: 5.5rem;
+  font-weight: 500;
   line-height: 1.1;
   color: ${(props: ThemeProps) => props.theme.colors.indigo10};
-`;
-
-const HR = styled.div`
-  width: 100%;
-  height: 1px;
-  background: ${(props: ThemeProps) => props.theme.colors.indigo10};
-
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
-    height: 2px;
-  }
 `;
 
 const HeaderStyle = styled.header`
@@ -34,7 +24,6 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
   return (
     <HeaderStyle>
       <H1>{title}</H1>
-      <HR />
     </HeaderStyle>
   );
 };

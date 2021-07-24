@@ -55,7 +55,7 @@ const NavLinksContainer = styled.ul`
     align-items: center;
     width: 100%;
     transform: translateX(100%);
-    transition: transform 0.5s ease-in;
+    transition: transform 0.4s ease-in;
 
     & > li {
       margin: 3rem 0;
@@ -75,13 +75,17 @@ const NavLink = styled.a`
   color: ${(props) =>
     props.className === 'active' ? props.theme.colors.indigo11 : 'inherit'};
   font-weight: 300;
-  transition: all 0.5s;
+  transition: all 0.3s;
 
   @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
     font-size: 2.5rem;
   }
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
-    font-size: 3rem;
+    font-size: 6rem;
+  }
+
+  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
+    font-size: 3.25rem;
   }
 
   &:after {
@@ -135,7 +139,7 @@ export const Navbar = () => {
         navbarOpen={navbarOpen}
         setNavbarOpen={setNavbarOpen}
         style={{ width, height }}
-        color={theme.colors.indigo8}
+        color={theme.colors.indigo12}
         onHoverColor={theme.colors.indigo9}
       />
       <NavLinksContainer
@@ -153,7 +157,7 @@ export const Navbar = () => {
             key={link.title}
             style={{
               ...(navbarOpen && {
-                animation: `linkFade 0.5s ease forwards ${i / 7 + 0.75}s`,
+                animation: `linkFade 0.3s ease forwards ${i / 7 + 0.5}s`,
               }),
             }}
           >

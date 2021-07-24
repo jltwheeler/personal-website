@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import matter from 'gray-matter';
 import marked from 'marked';
 import prism from 'prismjs';
@@ -95,6 +94,7 @@ const BlogMetaStyle = styled.section`
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
       font-size: 1.75rem;
+      line-height: 1.2;
     }
   }
   div {
@@ -114,7 +114,10 @@ const BlogMeta: React.FC<BlogMetaProps> = ({ readTime, description, date }) => {
     <BlogMetaStyle>
       <h3>{description}</h3>
       <div>
-        <i>{`Published by Josh Wheeler on ${date} - ${readTime}`}</i>
+        <i>{`Published by Josh Wheeler on ${date}`}</i>
+      </div>
+      <div>
+        <i>{`${readTime}`}</i>
       </div>
     </BlogMetaStyle>
   );
@@ -123,18 +126,17 @@ const BlogMeta: React.FC<BlogMetaProps> = ({ readTime, description, date }) => {
 const BlogBody = styled.section`
   h2 {
     color: ${(props: ThemeProps) => props.theme.colors.indigo10};
-    font-size: 3rem;
+    font-size: 3.5rem;
     padding-top: 2rem;
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
-      font-size: 2.75rem;
       line-height: 1.5;
       padding-top: 1rem;
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-      font-size: 2.5rem;
       line-height: 1.25;
+      font-size: 2.75rem;
     }
   }
 
@@ -145,10 +147,11 @@ const BlogBody = styled.section`
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
       font-size: 2.75rem;
       line-height: 1.3;
+      padding: 0.5rem 0;
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-      font-size: 2.5rem;
+      font-size: 2rem;
       line-height: 1.2;
     }
   }
@@ -295,10 +298,7 @@ const BlogFooter: React.FC<{ date: string }> = ({ date }) => {
         <div className="bio-description">
           <strong>Josh Wheeler</strong> is a software engineer based in London
           who specialises in developing cloud native full stack web
-          applications. To learn more about Josh,
-          <Link href={`/about`} passHref={true}>
-            <a> click here.</a>
-          </Link>
+          applications.
         </div>
         <img src="../josh.jpg" alt="Josh Wheeler Profile Pic" />
       </section>
