@@ -11,6 +11,8 @@ const StyledSVG = styled.svg`
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
     display: revert;
+    margin-top: 3rem;
+    margin-bottom: 0rem;
   }
 `;
 
