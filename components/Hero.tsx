@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 import { ThemeProps } from '../config';
+import { Accent } from '../components';
 
 const HeroSection = styled.section`
   margin: 0 auto;
@@ -164,11 +165,6 @@ const NavLink = styled.a`
     border-color: ${(props: ThemeProps) => props.theme.colors.indigo7};
     color: ${(props: ThemeProps) => props.theme.colors.indigo12};
   }
-`;
-
-const Accent = styled.span`
-  color: ${(props: ThemeProps) => props.theme.colors.indigo11};
-  font-weight: 500;
 `;
 
 export const Hero = () => {
