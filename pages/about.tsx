@@ -6,6 +6,7 @@ import { Accent, Container, Footer, Header, Main, Navbar } from '../components';
 import { ThemeProps } from '../config';
 
 const AboutMe = styled.section`
+  margin-bottom: 2rem;
   h3 {
     font-size: 3rem;
     font-weight: 600;
@@ -13,7 +14,7 @@ const AboutMe = styled.section`
     color: ${(props: ThemeProps) => props.theme.colors.indigo11};
 
     &:not(first-child) {
-      margin: 1rem 0;
+      margin: 1.5rem 0;
     }
   }
 
@@ -155,6 +156,7 @@ const About = () => {
                   <td>React (Next.js)</td>
                   <td>GraphQL</td>
                   <td>Terraform</td>
+                  <td>Testing</td>
                 </tr>
               </tbody>
             </table>
@@ -167,6 +169,15 @@ const About = () => {
               <li>Implementing serverless architecture patterns</li>
               <li>Automating tasks with Python or Node.js</li>
               <li>Building CLI applications</li>
+              <li>Unit and integration testing</li>
+            </ul>
+
+            <h3>Technologies I&apos;m Learning and Refining in 2021</h3>
+            <ul>
+              <li>Rust</li>
+              <li>CSS in greater depth</li>
+              <li>DynamoDB</li>
+              <li>Microservices via message queues.</li>
             </ul>
 
             <h3>Life Outside of Software Engineering</h3>
