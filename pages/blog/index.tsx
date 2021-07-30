@@ -15,13 +15,13 @@ const BlogCard = styled.article`
   margin: 1rem 0;
   color: ${(props: ThemeProps) => props.theme.colors.indigo12};
   background: ${(props: ThemeProps) => props.theme.colors.indigo3};
-  border: 1px solid ${(props: ThemeProps) => props.theme.colors.indigo7};
+  border: 1px solid ${(props: ThemeProps) => props.theme.colors.indigo6};
   border-radius: 1rem;
   padding: 1.5rem 2.5rem;
   margin: 3rem 0;
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-    padding: 1rem 2rem;
+    padding: 2.25rem 1.5rem;
   }
 
   &:hover {
@@ -41,7 +41,7 @@ const BlogCard = styled.article`
     font-size: 3rem;
     text-decoration: none;
     color: ${(props) => props.theme.colors.indigo10};
-    font-weight: 400;
+    font-weight: 500;
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
       font-size: 2.5rem;
@@ -49,13 +49,14 @@ const BlogCard = styled.article`
     }
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-      font-size: 2rem;
+      font-size: 2.25rem;
     }
   }
 
   .description {
     font-size: 1.8rem;
-    padding: 1rem 0;
+    padding-top: 1rem;
+    color: ${(props) => props.theme.colors.indigo12};
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
       font-size: 1.6rem;
@@ -64,11 +65,12 @@ const BlogCard = styled.article`
   }
 
   .metadata {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    padding: 0.25rem 0;
     color: ${(props) => props.theme.colors.indigo11};
 
     @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
-      font-size: 1.25rem;
+      font-size: 1.4rem;
     }
   }
 `;

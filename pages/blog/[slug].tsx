@@ -189,12 +189,8 @@ const BlogBody = styled.section`
       color: ${(props: ThemeProps) => props.theme.colors.indigo10};
     }
   }
-  li {
-    list-style-position: inside;
-    padding: 0.5rem 0;
-  }
   ul {
-    padding-left: 1rem;
+    margin-left: 3rem;
   }
   img {
     display: block;
