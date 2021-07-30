@@ -20,7 +20,7 @@ const AboutMe = styled.section`
 
   img {
     display: block;
-    margin: 0 auto;
+    margin: 1rem auto;
     width: 100%;
     padding: 1rem 0;
   }
@@ -41,10 +41,12 @@ const AboutMe = styled.section`
     color: ${(props: ThemeProps) => props.theme.colors.indigo11};
     font-weight: 500;
   }
+  ul {
+    margin-left: 3rem;
+  }
 
   p,
-  li,
-  td {
+  li {
     font-size: 1.8rem;
     padding: 1rem 0;
     line-height: 1.6;
@@ -60,28 +62,21 @@ const AboutMe = styled.section`
   }
 
   li {
-    list-style-position: inside;
+    line-height: 1.4;
     padding: 0.5rem 0;
   }
 
   .stack {
-    display: flex;
-    justify-content: left;
+    display: grid;
+    grid-template: 1fr / repeat(2, 1fr);
+    margin: 0;
 
-    ul {
-      margin-right: auto;
+    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+      grid-template: 4fr / repeat(1, 1fr);
     }
-  }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  td {
-    padding: 1rem;
-    &:hover {
-      color: ${(props: ThemeProps) => props.theme.colors.indigo11};
+    li {
+      list-style: none;
     }
   }
 `;
@@ -100,8 +95,6 @@ const About = () => {
         <Container>
           <Header title="About Me" />
           <AboutMe>
-            <img src="./jw-sk.jpg" alt="Josh in South Korea" />
-            <h3>About</h3>
             <p>
               <i>
                 I&apos;m Josh Wheeler, a software engineer with a deep passion
@@ -132,52 +125,79 @@ const About = () => {
             </p>
 
             <h3>Primary Tech Stack</h3>
-            <table>
-              <tbody>
-                <tr>
-                  <td>HTML</td>
-                  <td>Node.js (Express.js)</td>
-                  <td>Postgres</td>
-                  <td>Docker</td>
-                </tr>
-                <tr>
-                  <td>CSS/SASS</td>
-                  <td>Python (Flask)</td>
-                  <td>DynamoDB</td>
-                  <td>Serverless Framework</td>
-                </tr>
-                <tr>
-                  <td>JavaScript & TypeScript</td>
-                  <td>REST</td>
-                  <td>AWS</td>
-                  <td>GitHub Actions</td>
-                </tr>
-                <tr>
-                  <td>React (Next.js)</td>
-                  <td>GraphQL</td>
-                  <td>Terraform</td>
-                  <td>Testing</td>
-                </tr>
-              </tbody>
-            </table>
+            <ul className="stack">
+              <li>
+                Node.js (Express & Nest), Jest, <br />
+                Python (Flask), SQLAlchemy, <br />
+                Postgres, DynamoDB, TypeORM
+              </li>
+              <li>
+                HTML, CSS / SASS, <br />
+                JavaScript & TypeScript, <br />
+                React (Next.js) & Redux
+              </li>
+              <li>
+                AWS, Terraform, Docker, <br />
+                Serverless Framework, <br />
+                Github Actions <br />
+              </li>
+              <li>
+                Building REST and GraphQL APIs, <br />
+                Apollo & react-query
+              </li>
+            </ul>
 
             <h3>What You Can Ask Me About</h3>
             <ul>
-              <li>Full stack web development</li>
               <li>Building cloud native web applications</li>
-              <li>How to implement CICD in projects</li>
-              <li>Implementing serverless architecture patterns</li>
+              <li>
+                Implenting devops practices on projects (e.g. CICD, automated
+                testing and monitoring)
+              </li>
+              <li>Building serverless services</li>
               <li>Automating tasks with Python or Node.js</li>
               <li>Building CLI applications</li>
-              <li>Unit and integration testing</li>
             </ul>
 
             <h3>Technologies I&apos;m Learning and Refining in 2021</h3>
             <ul>
-              <li>Rust</li>
-              <li>CSS in greater depth</li>
-              <li>DynamoDB</li>
-              <li>Microservices via message queues.</li>
+              <li>
+                Rust - want to get a better understand of low level languages
+              </li>
+              <li>
+                <a
+                  href="https://css-for-js.dev/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {' '}
+                  CSS in greater depth
+                </a>
+              </li>
+              <li>DynamoDB, with a focus on data modelling</li>
+              <li>
+                Different microservice implementations in AWS, particularly with
+                message queues
+              </li>
+              <li>
+                <a
+                  href="https://neovim.io/roadmap/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Neovim 0.5{' '}
+                </a>{' '}
+                - switching from CoC to built-in LSP and moving{' '}
+                <Accent>init.vim</Accent> config to Lua,
+                <a
+                  href="https://www.youtube.com/watch?v=190HoB0pVro&list=PLhoH5vyxr6QqPtKMp03pcJd_Vg8FZ0rtg&index=26&ab_channel=ChrisAtMachine"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {' '}
+                  more details
+                </a>
+              </li>
             </ul>
 
             <h3>Life Outside of Software Engineering</h3>
@@ -195,6 +215,7 @@ const About = () => {
                 cultures and most of all, trying new food!
               </li>
             </ul>
+            <img src="./jw-sk.jpg" alt="Josh in South Korea" />
           </AboutMe>
         </Container>
         <Footer />
