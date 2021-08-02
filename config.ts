@@ -3,6 +3,7 @@ import { slate, slateDark, indigo, indigoDark } from '@radix-ui/colors';
 export const prefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 const sizes = {
+  '3xl': 1820,
   '2xl': 1540,
   xl: 1280,
   l: 1000,
@@ -11,6 +12,7 @@ const sizes = {
 };
 
 interface Sizes {
+  '3xl': number;
   '2xl': number;
   xl: number;
   l: number;
