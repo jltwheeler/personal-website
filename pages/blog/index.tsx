@@ -12,13 +12,9 @@ import { BlogMetaData } from './[slug]';
 
 const BlogCard = styled.article`
   cursor: pointer;
-  margin: 1rem 0;
   color: ${(props: ThemeProps) => props.theme.colors.indigo12};
-  background: ${(props: ThemeProps) => props.theme.colors.indigo3};
-  border: 1px solid ${(props: ThemeProps) => props.theme.colors.indigo6};
-  border-radius: 1rem;
-  padding: 1.5rem 2.5rem;
-  margin: 3rem 0;
+  border-bottom: 2px solid ${(props: ThemeProps) => props.theme.colors.indigo6};
+  padding: 2rem 2.5rem;
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
     padding: 2.25rem 1.5rem;
@@ -119,10 +115,7 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
                 <BlogCard>
                   <a>{blog.title}</a>
                   <p className="metadata">
-                    <i>
-                      {blog.date} | {blog.readTime}{' '}
-                    </i>
-                    ⏱️
+                    <i>{`${blog.date} • ${blog.readTime.toUpperCase()}`}</i>
                   </p>
                   <p className="description">{blog.description}</p>
                 </BlogCard>
