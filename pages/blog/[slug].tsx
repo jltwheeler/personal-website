@@ -314,7 +314,7 @@ const Post: React.FC<PostProps> = ({ content, data }) => {
       <Main>
         <Navbar />
         <Container>
-          <Header title={data.title} />
+          <Header title={data.title} blogTitle />
           <BlogMeta
             readTime={data.readTime}
             description={data.description}
