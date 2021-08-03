@@ -115,7 +115,7 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
                 <BlogCard>
                   <a>{blog.title}</a>
                   <p className="metadata">
-                    <i>{`${blog.date} • ${blog.readTime.toUpperCase()}`}</i>
+                    <i>{`${blog.date.toUpperCase()} • ${blog.readTime.toUpperCase()}`}</i>
                   </p>
                   <p className="description">{blog.description}</p>
                 </BlogCard>

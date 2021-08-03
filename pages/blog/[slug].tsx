@@ -101,6 +101,21 @@ const BlogMetaStyle = styled.section`
     color: ${(props: ThemeProps) => props.theme.colors.indigo12};
     font-size: 1.5rem;
   }
+
+  .flex {
+    display: flex;
+
+    > div:not(:first-child) {
+      padding-left: 1rem;
+      @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+        padding: 0;
+      }
+    }
+
+    @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+      flex-direction: column;
+    }
+  }
 `;
 
 interface BlogMetaProps {
@@ -113,11 +128,13 @@ const BlogMeta: React.FC<BlogMetaProps> = ({ readTime, description, date }) => {
   return (
     <BlogMetaStyle>
       <h3>{description}</h3>
-      <div>
-        <i>{`Published by Josh Wheeler on ${date}`}</i>
-      </div>
-      <div>
-        <i>{`${readTime}`}</i>
+      <div className="flex">
+        <div>
+          <i>Published by Josh Wheeler</i>
+        </div>
+        <div>
+          <i>{`${date} • ${readTime}`}</i>
+        </div>
       </div>
     </BlogMetaStyle>
   );
