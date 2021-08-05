@@ -14,10 +14,10 @@ const BlogCard = styled.article`
   cursor: pointer;
   color: ${(props: ThemeProps) => props.theme.colors.indigo12};
   border-bottom: 2px solid ${(props: ThemeProps) => props.theme.colors.indigo6};
-  padding: 2rem 2.5rem;
+  padding: 2rem 0;
 
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-    padding: 2.25rem 1.5rem;
+    padding: 2.25rem 0;
   }
 
   &:hover {
@@ -115,7 +115,7 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
                 <BlogCard>
                   <a>{blog.title}</a>
                   <p className="metadata">
-                    <i>{`${blog.date} • ${blog.readTime.toUpperCase()}`}</i>
+                    <i>{`${blog.date.toUpperCase()} • ${blog.readTime.toUpperCase()}`}</i>
                   </p>
                   <p className="description">{blog.description}</p>
                 </BlogCard>

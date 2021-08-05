@@ -129,7 +129,6 @@ export const Navbar = () => {
 
   useEffect(() => {
     setIconPath(`${window.location.origin}/jw-logo-dark.svg`);
-    console.log(iconPath);
   }, [iconPath]);
 
   return (

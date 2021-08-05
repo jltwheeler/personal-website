@@ -99,15 +99,15 @@ const About = () => {
           <Header title="About Me" />
           <AboutMe>
             <section id="summary">
-              <Link href="#summary" passHref={true}>
-                <h3>Summary</h3>
-              </Link>
               <p>
                 <i>
                   I&apos;m Josh Wheeler, a software engineer with a deep passion
                   for technology, problem solving and continuous learning.
                 </i>
               </p>
+              <Link href="#summary" passHref={true}>
+                <h3>Summary</h3>
+              </Link>
               <p>
                 After graduating university in 2015, with a Master&apos;s Degree
                 in Civil Engineering and a Bachelor Degree in Finance, I worked
