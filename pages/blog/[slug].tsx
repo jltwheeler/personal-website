@@ -100,8 +100,6 @@ interface Params {
 }
 
 const BlogMetaStyle = styled.section`
-  margin-bottom: 1.5rem;
-
   @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
     margin-bottom: 0.75rem;
   }
@@ -259,7 +257,7 @@ const BlogBody = styled.section`
   img {
     display: block;
     margin: 0 auto;
-    width: 85%;
+    width: 95%;
     padding: 1rem 0;
   }
 `;
