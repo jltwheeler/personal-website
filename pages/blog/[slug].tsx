@@ -218,9 +218,21 @@ const BlogBody = styled.section`
   }
 
   pre {
+    overflow: auto;
+    background: #1d1d1d;
+    padding: 1rem 1.25rem;
+    margin: 0.5rem 0;
     border-radius: 10px;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    line-height: 1.4;
+
     code {
       font-size: 1.4rem;
+      @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
+        font-size: 1.2rem;
+      }
     }
   }
 
