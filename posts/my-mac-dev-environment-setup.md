@@ -2,17 +2,17 @@
 id: 2
 title: My Mac Dev Environment Setup
 description: I've recently started a new job where I've had to setup a Macbook for the first time ever. Here's everything I use on my Mac for fullstack web development.
-date: August 03 2021
+date: August 06 2021
 ---
 
 ## Foreword
 
 Given that I've never developed on macOS before, I thought it would be a good
 idea to document my full stack web development environment setup to help future
-Josh and anyone else out there.
+Me and anyone else out there.
 
-> **NOTE:** This is a _highly_ opinionated guide on setting up Mac's for full
-> stack web development. By no means is this the correct way for _everyone_.
+> **NOTE:** This is a _highly_ opinionated guide on setting up mac's for full
+> stack web development. This setup won't work for _everyone_.
 
 ## Contents
 
@@ -24,29 +24,41 @@ Josh and anyone else out there.
   - [zsh](#zsh)
   - [tmux](#tmux)
 - [IDE - Neovim](#ide---neovim)
-- [Desktop Apps](#desktop-apps)
 - [CLIs](#clis)
+- [Desktop Apps](#desktop-apps)
+  - [Alfred](#alfred)
+  - [Spectacle](#spectacle)
+  - [iGlance](#iglance)
+  - [Brave](#brave)
 - [Useful Links](#useful-links)
 
 ## General Settings
 
 Before getting into any development-specific setup, let's first customise some
-system and other settings:
+system and Finder settings:
 
-- Acquire some additional screen real estate by getting rid of the app dock:
+- Acquire some additional screen real estate by hiding the app dock:
   - Go to `System Settings -> Dock & Menu Bar` and do the following:
-  - Set `Position on Screen` to `Right`
-  - Move the dock size slider to the smaller side
-  - Untick `Show recent applications in Dock`
-  - Tick `Automatically hide and show the Dock`
-- Disable `Spotlight` to be the default `⌘ + space` shortcut. We will later
-  be calling Alfred with this shortcut:
+    - Set `Position on Screen` to `Right`
+    - Move the dock size slider to the smaller side
+    - Untick `Show recent applications in Dock`
+    - Tick `Automatically hide and show the Dock`
+  - Now the dock will only appear when the cursor hovers over the right hand
+    side of the screen.
+- Disable `Spotlight` to be the default `⌘ + space` shortcut. We will later be
+  calling Alfred with this shortcut:
   - Go to `System Settings -> Keyboard shortcuts`
   - Untick `Show Spotlight search` for `⌘ + space`
 - Disable Ask Siri
 - Disable track pad natural scroll direction
   - Go to `System Settings -> Trackpad -> Scroll & Zoom`
   - Untick `Scroll direction: Natural`
+- Keyboard: I use a UK Layout mechanical keyboard, so will need to make the
+  following changes:
+  - `System Settings -> Keyboard -> Input Sources` select British PC
+  - `System Settings -> Keyboard -> Select My Keyboard -> Modifier Keys`:
+    - Change the Option Key to `⌘ Command`
+    - Change the Command Key to `⌥ Option`
 - Finder
   - `Finder -> Preferences -> Show all file name extensions`
   - `⌘ + shift + .` to show dotfiles
@@ -54,9 +66,9 @@ system and other settings:
 
 ## Terminal
 
-The terminal is probably the most critical part of any developer's machine.
-It's what we spend most of our day in. So it's important that I use one that
-is relibable, fast and highly customisable.
+The terminal is where all the magic happens on a developer's machine. It's what
+we spend most of our day in. So it's important that I use one that is reliable,
+fast and highly customisable.
 
 ### Alacritty
 
@@ -79,14 +91,14 @@ Once it is installed, create an `alacritty.yml` file:
 vim ~/.config/alacritty/alacritty.yml
 ```
 
-Then copy across my [alacritty.yaml][my-yaml] configuration:
+Then copy across my [alacritty.yaml][my-yaml] configuration.
 
 ### Homebrew
 
 Package managers _simplify_ installing, updating and removing software on the
-operating system, therefore it's critical to have one. [Homebrew][brew] is the
-most popular package manager for macOS. For thos coming from a Linux (Debian)
-background, Homebrew is essentially just the mac equivalent of `apt`.
+operating system. [Homebrew][brew] is the most popular package manager for
+macOS. For those coming from a Linux (Debian) background, Homebrew is
+essentially just the mac equivalent of `apt`.
 
 > I pretty much use `brew` to install _everything_ I use.
 
@@ -120,7 +132,7 @@ future without messing with the system default version.
 brew install git
 ```
 
-Run the command below to verify that git installed and you are now using the
+Run the command below to verify that git installed and are now using the
 Homebrew installed git at `/usr/local/bin/git`:
 
 ```bash
@@ -149,10 +161,11 @@ brew install zsh
 ```
 
 Whilst my `~/.zshrc` contains a lot of things I've written myself, like aliases
-(future blog coming on this), I leave _most_ of the management of the theme and
-power user-related configration to a framework called [Oh My Zsh][ohmyzsh]. Oh
-My Zsh, is an open souce, community-driver framework that bootstraps a lot of
-great configuration out of the box.
+(future blog coming on this), I leave _most_ of the management of the power
+user-related configuration to a framework called [Oh My Zsh][ohmyzsh]. Oh My
+Zsh, is an open source, community-driver framework that bootstraps a lot of
+great configuration and themes out of the box. Take a look at [this
+cheatsheet][omz-cheat] to have a look at some of the aliases it ships with.
 
 To install Oh My Zsh, run:
 
@@ -160,18 +173,20 @@ To install Oh My Zsh, run:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-Then, to go one step further, I use [Powerlevel10k][p10k] to make configuring
-Oh My Zsh even easier. To install, run:
+I use [Powerlevel10k][p10k] for my zsh theme. Not only does it provide a great
+looking theme with glyph support, but also comes with a user-friendly
+interactive prompt to help configure the theme. To install, run:
 
 ```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-After it has installed, enable the powerlevel10k theme in your `~/.zshrc` file,
+After it has installed, enable the powerlevel10k theme in the `~/.zshrc` file,
 by specifying `ZSH_THEME="powerlevel10k/powerlevel10k"`.
 
 Then ensure to install the recommended [MesloLGS NerdFont][font]. This font
-allows glyphs and symbols used by Powerlevel10k to appear in the terminal.
+allows glyphs and symbols used by Powerlevel10k to render correctly in the
+terminal.
 
 Once the font is installed and setup correctly, run the following command and
 follow the P10k prompts to select the desired appearance:
@@ -185,7 +200,7 @@ the image below.
 
 ![my terminal](https://josh-wheeler-media.s3.eu-west-2.amazonaws.com/my-mac-dev-environment-setup/zsh-p10k.png)
 
-Lastly, lets install some _useful_ plugins that further extend zsh's
+Lastly, let's install some _useful_ plugins that further extend zsh's
 capabilities:
 
 ```bash
@@ -203,7 +218,7 @@ plugins=(git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions)
 ...
 ```
 
-Source your `~/.zshrc` file for the changes to take effect:
+Source the `~/.zshrc` file for the changes to take effect:
 
 ```bash
 source ~/.zshrc
@@ -213,26 +228,28 @@ source ~/.zshrc
 
 [tmux][tmux] is a terminal multiplexer, letting you switch between several
 programs and sessions within one terminal. It has a bit of a learning curve,
-but I can't imagine life without it.
+but I can't imagine life without it. If you're a backend or cloud
+engineer who does a lot of ssh'in into servers, then it is definitely
+worth installing.
 
-Install tmux by running
+Install tmux by running:
 
 ```bash
 brew install tmux
 ```
 
 Then install the [Tmux Plugin Manager][tpm] to manage installing plugins for
-you tmux setup:
+tmux:
 
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-Plugins can now easily be added into the `~/.tmux.conf` file with the `set -g @plugin '...'` comand. To install the plugin, simply just save the file and run
+Plugins can now easily be added into the `~/.tmux.conf` file with the `set -g @plugin '...'` command. To install the plugin, simply just save the file and run
 the `tmux prefix + I` to fetch and install the plugin.
 
 My [~/.tmux.conf][tmuxc] contains all the configurations and plugins I use. The
-plugins and confiugration are mostly based around the status bar and vim
+plugins and configuration are mostly based around the status bar and vim
 integration.
 
 ## IDE - Neovim
@@ -266,17 +283,23 @@ and copy across my [init.vim][vimrc] and [coc-settings.json][coc-settings].
 
 ## CLIs
 
-A bunch of software I use almost on a daily basis in the terminal:
+I'm a big fan of software that runs via the command line. These are the most
+common software's that I rely on for my daily workflow:
 
 - [Docker][docker] - although Docker Desktop is technically a desktop app, I
   only use docker via the terminal.
+- [aws cli][aws] and [aws-vault][aws-vault]. The `aws-cli` doesn't need much
+  explanation, it is the gateway to calling AWS APIs. On the other hand,
+  `aws-vault` makes it easy to securely store and access AWS credentials in a
+  dev environment. It also makes it simple to switch between multiple IAM roles
+  quickly.
 - [nvm][nvm] - Node version manager for managing multiple node version
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | zsh
 ```
 
-Then add to you `~/.zshrc` file:
+Then add to the following to the `~/.zshrc` file:
 
 ```bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -285,6 +308,10 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 > _NOTE:_ I'm currently looking into switching from nvm to [volta](https://volta.sh/)
 
+- [z][z] - Tracks your most used directories, based on 'frecency'. After a
+  short learning phase, `z` will take you to the most 'frecent' directory that
+  matches ALL of the regexes given on the command line, in order:
+  - `brew install z`
 - [bat][bat] - A cat clone with syntax highlighting and Git integration:
   - `brew install bat`
 - [delta][delta] - A viewer for git and diff output:
@@ -295,7 +322,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
   - `brew install ripgrep`
 - [fzf][fzf] - A general purpose command-line fuzzy finder:
   - `brew install fzf && $(brew --prefix)/opt/fzf/install`
-- [ranger][ranger] - A VIM-inspired filemanager for the console:
+- [ranger][ranger] - A VIM-inspired file manager for the console:
   - `brew install ranger`
 - [glances][glances] - Glances an Eye on your system. A top/htop alternative:
   - `brew install glances`
@@ -351,6 +378,7 @@ brew install --cask brave-browser
 - [Modern Unix](https://github.com/ibraheemdev/modern-unix) A collection of modern/faster/saner alternatives to common unix commands.
 - Other good setups documents / repos:
   - [Coding Garden - Setting up a Mac for Web Dev 2020](https://youtu.be/tmnopaqrfae)
+  - [Nick Janetakis - The Tools I use](https://nickjanetakis.com/blog/the-tools-i-use)
   - [nicolashery/mac-dev-setup](https://github.com/nicolashery/mac-dev-setup)
   - [Kent C Dodds Uses](https://kentcdodds.com/uses/)
   - [The Primeagen dotfiles](https://github.com/theprimeagen/.dotfiles)
@@ -389,3 +417,7 @@ brew install --cask brave-browser
 [nvm]: https://github.com/nvm-sh/nvm
 [ranger]: https://github.com/ranger/ranger
 [glances]: https://github.com/nicolargo/glances
+[omz-cheat]: https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet
+[aws-vault]: https://github.com/99designs/aws-vault
+[aws]: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html
+[z]: https://github.com/rupa/z
