@@ -160,12 +160,13 @@ not, install it by running:
 brew install zsh
 ```
 
-Whilst my `~/.zshrc` contains a lot of things I've written myself, like aliases
-(future blog coming on this), I leave _most_ of the management of the power
-user-related configuration to a framework called [Oh My Zsh][ohmyzsh]. Oh My
-Zsh, is an open source, community-driver framework that bootstraps a lot of
-great configuration and themes out of the box. Take a look at [this
-cheatsheet][omz-cheat] to have a look at some of the aliases it ships with.
+Whilst my [~/.zshrc][myzsh] contains a lot of things I've written myself, like
+[aliases][aliases] (future blog coming on this), I leave _most_ of the
+management of the power user-related configuration to a framework called [Oh My
+Zsh][ohmyzsh]. Oh My Zsh, is an open source, community-driver framework that
+bootstraps a lot of great configuration and themes out of the box. Take a look
+at [this cheatsheet][omz-cheat] to have a look at some of the aliases it ships
+with.
 
 To install Oh My Zsh, run:
 
@@ -421,3 +422,5 @@ brew install --cask brave-browser
 [aws-vault]: https://github.com/99designs/aws-vault
 [aws]: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html
 [z]: https://github.com/rupa/z
+[myzsh]: https://github.com/jltwheeler/dotfiles/blob/mac-dev-env/.zshrc
+[aliases]: https://github.com/jltwheeler/dotfiles/blob/mac-dev-env/.zshrc#L104-L143
