@@ -1,4 +1,4 @@
-{
+module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: 'tsconfig.json',
@@ -9,7 +9,7 @@
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'next',
-    'next/core-web-vitals'
+    'next/core-web-vitals',
   ],
   root: true,
   rules: {
@@ -18,6 +18,6 @@
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
-    "@next/next/no-img-element": "off",
+    '@next/next/no-img-element': 'off',
   },
-}
+};
