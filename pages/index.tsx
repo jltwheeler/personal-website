@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { Footer, Hero, Main, Navbar } from '../components';
+import { Navbar } from '../components';
 
 export default function Home() {
   return (
@@ -11,11 +11,9 @@ export default function Home() {
         <link rel="icon" href="/jw-favicon.svg" />
       </Head>
 
-      <Main>
-        <Navbar />
-        <Hero />
-        <Footer />
-      </Main>
+      <Navbar />
+      {/* <Hero />
+        <Footer /> */}
     </>
   );
 }
