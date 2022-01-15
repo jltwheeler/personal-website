@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useLayoutEffect, useState } from 'react';
+import { useState, useContext } from 'react';
+import { Theme, ThemeContext } from '../pages/_app';
 
 const links = [
   { title: 'home', path: '/' },
@@ -11,31 +12,26 @@ const links = [
 
 export const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { theme, setTheme } = useContext(ThemeContext);
   const router = useRouter();
+
+  const isDarkMode = theme === 'dark' ? true : false;
 
   const toggleDarkMode = () => {
     if (window !== undefined) {
-      const theme = isDarkMode ? 'dark' : 'light';
-      window.localStorage.setItem('color-theme', theme);
-
       if (theme === 'dark') {
+        window.localStorage.setItem('color-theme', Theme.LIGHT);
         document.documentElement.classList.remove('dark');
-        setIsDarkMode(false);
+        setTheme(Theme.LIGHT);
         return;
       }
 
+      window.localStorage.setItem('color-theme', Theme.DARK);
       document.documentElement.classList.add('dark');
-      setIsDarkMode(true);
+      setTheme(Theme.DARK);
       return;
     }
   };
-
-  useLayoutEffect(() => {
-    if (document !== undefined) {
-      setIsDarkMode(document.documentElement.classList.contains('dark'));
-    }
-  }, []);
 
   if (true) {
     return (
@@ -153,7 +149,7 @@ export const Navbar = () => {
               >
                 <svg
                   id="theme-toggle-dark-icon"
-                  className={`${isDarkMode ? '' : 'hidden'} w-5 h-5`}
+                  className={`${isDarkMode ? 'hidden' : ''} w-5 h-5`}
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +158,7 @@ export const Navbar = () => {
                 </svg>
                 <svg
                   id="theme-toggle-light-icon"
-                  className={`${isDarkMode ? 'hidden' : ''} w-5 h-5`}
+                  className={`${isDarkMode ? '' : 'hidden'} w-5 h-5`}
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"

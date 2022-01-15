@@ -1,10 +1,28 @@
 import type { AppProps } from 'next/app';
-import { useEffect } from 'react';
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react';
 
 import '../styles/prism-theme.css';
 import '../styles/globals.css';
 
+export enum Theme {
+  DARK = 'dark',
+  LIGHT = 'light',
+}
+
+export const ThemeContext = createContext<{
+  theme: string;
+  setTheme: Dispatch<SetStateAction<Theme>>;
+}>({ theme: '', setTheme: () => ({}) });
+
 function MyApp({ Component, pageProps }: AppProps) {
+  const [theme, setTheme] = useState<Theme>(Theme.DARK);
+
   useEffect(() => {
     if (window !== undefined) {
       if (
@@ -12,12 +30,19 @@ function MyApp({ Component, pageProps }: AppProps) {
         (!('color-theme' in window.localStorage) &&
           window.matchMedia('(prefers-color-scheme: dark)').matches)
       ) {
+        setTheme(Theme.DARK);
         document.documentElement.classList.add('dark');
       } else {
+        setTheme(Theme.LIGHT);
         document.documentElement.classList.remove('dark');
       }
     }
   }, []);
-  return <Component {...pageProps} />;
+
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <Component {...pageProps} />
+    </ThemeContext.Provider>
+  );
 }
 export default MyApp;
