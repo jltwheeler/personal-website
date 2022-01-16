@@ -1,16 +1,8 @@
-import styled from 'styled-components';
-import { ThemeProps } from '../config';
-
-export const Container = styled.div`
-  width: 55%;
-  margin: 0 auto;
-  padding: 2rem 0;
-
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
-    width: 70%;
-  }
-
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-    width: 80%;
-  }
-`;
+interface ContainerProps {
+  children: React.ReactNode;
+}
+export const Container: React.FC<ContainerProps> = ({ children }) => (
+  <div className="flex flex-col justify-center items-center w-full">
+    <div className="max-w-prose">{children}</div>
+  </div>
+);

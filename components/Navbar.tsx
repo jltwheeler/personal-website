@@ -38,7 +38,7 @@ export const Navbar = () => {
     return (
       <nav className="border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
-          <a href="#" className="flex">
+          <a href="#" className="no-underline flex">
             <Logo theme={theme} />
             <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">
               Josh Wheeler
@@ -93,13 +93,13 @@ export const Navbar = () => {
                   <Link href={`${link.path}`}>
                     {router.pathname === link.path ? (
                       <a
-                        className="w-full text-center cursor-pointer block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                        className="no-underline w-full text-center cursor-pointer block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
                         aria-current="page"
                       >
                         {link.title.toUpperCase()}
                       </a>
                     ) : (
-                      <a className="w-full text-center cursor-pointer block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                      <a className="no-underline w-full text-center cursor-pointer block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                         {link.title.toUpperCase()}
                       </a>
                     )}

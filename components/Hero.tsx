@@ -4,7 +4,7 @@ import { Accent } from '../components';
 export const Hero = () => {
   return (
     <section className="dark:bg-gray-900 flex flex-col py-12 sm:py-48">
-      <div className="flex justify-around align-center flex-col sm:flex-row px-16 md:px-32 lg:px-48">
+      <div className="flex justify-around items-center flex-col sm:flex-row px-16 md:px-32 lg:px-48">
         <div className="w-full sm:w-1/3">
           <h2 className="text-2xl md:text-4xl dark:text-white">
             Hello, world. I&apos;m
@@ -15,12 +15,12 @@ export const Hero = () => {
           <h3 className="text-lg md:text-xl dark:text-blue-400 text-blue-600 italic">
             A software engineer specialising in full stack web development.
             Primarily working with <Accent>Node.js</Accent>,{' '}
-            <Accent>AWS</Accent>,<Accent>React.JS</Accent>,{' '}
+            <Accent>AWS</Accent>, <Accent>React.JS</Accent>,{' '}
             <Accent>TypeScript</Accent> and <Accent>PostgreSQL</Accent>.
           </h3>
         </div>
       </div>
-      <div className="sm:hidden flex justify-center align-center pt-6">
+      <div className="sm:hidden flex justify-center items-center pt-8">
         <Link href="/blog" passHref>
           <button
             type="button"
