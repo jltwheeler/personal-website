@@ -9,3 +9,8 @@ body {
 a {
   @apply underline text-blue-500;
 }
+
+p,
+ul {
+  @apply text-base sm:text-lg;
+}

@@ -15,7 +15,7 @@ const About = () => {
       <Navbar />
       <Container>
         <Header title="About Me" />
-        <section className="text-md sm:text-lg">
+        <section className="text-base sm:text-lg">
           <p>
             I&apos;m Josh Wheeler, an Australian software engineer currently
             based in London.
