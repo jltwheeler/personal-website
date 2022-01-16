@@ -17,13 +17,28 @@ export const Footer = () => {
           &copy; {now.getFullYear()} Josh Wheeler
         </p>
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          <a className="ml-3 text-gray-600 dark:text-gray-500">
+          <a
+            target="_blank"
+            href="mailto:jltwheeler@gmail.com"
+            className="ml-3 text-gray-600 dark:text-gray-500"
+            rel="noreferrer"
+          >
             <Gmail />
           </a>
-          <a className="ml-3 text-gray-600 dark:text-gray-500">
+          <a
+            target="_blank"
+            href="https://github.com/jltwheeler"
+            className="ml-3 text-gray-600 dark:text-gray-500"
+            rel="noreferrer"
+          >
             <GitHub />
           </a>
-          <a className="ml-3 text-gray-600 dark:text-gray-500">
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/joshuawheeler93/"
+            className="ml-3 text-gray-600 dark:text-gray-500"
+            rel="noreferrer"
+          >
             <LinkedIn />
           </a>
         </span>

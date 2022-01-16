@@ -3,7 +3,7 @@ import React from 'react';
 export const GitHub = () => {
   return (
     <svg
-      className="w-5 h-5"
+      className="w-6 h-6"
       fill="currentColor"
       stroke="currentColor"
       strokeLinecap="round"
