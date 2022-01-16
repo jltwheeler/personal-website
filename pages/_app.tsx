@@ -16,9 +16,9 @@ export enum Theme {
 }
 
 export const ThemeContext = createContext<{
-  theme: string;
+  theme: Theme;
   setTheme: Dispatch<SetStateAction<Theme>>;
-}>({ theme: '', setTheme: () => ({}) });
+}>({ theme: Theme.DARK, setTheme: () => ({}) });
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState<Theme>(Theme.DARK);
