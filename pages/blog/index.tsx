@@ -49,7 +49,7 @@ const Blog: React.FC<BlogProps> = ({ blogs }) => {
             <Card
               key={blog.slug}
               wide
-              mb={8}
+              mb={true}
               title={blog.title}
               body={blog.description}
               subtext={`${blog.date.toUpperCase()} • ${blog.readTime.toUpperCase()}`}

@@ -7,7 +7,7 @@ interface CardProps {
   cta?: string;
   ctaLink?: string;
   wide?: boolean;
-  mb?: number;
+  mb?: boolean;
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -21,7 +21,7 @@ export const Card: React.FC<CardProps> = ({
 }) => (
   <div
     className={`p-4 ${wide ? '' : 'max-w-xs'} ${
-      mb ? `mb-${mb}` : ''
+      mb ? 'mb-8' : ''
     } bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700`}
   >
     <h5 className="mb-2 text-xl sm:text-2xl font-bold tracking-tight text-blue-600">
