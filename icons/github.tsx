@@ -1,34 +1,20 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
-export const GitHub: React.FC<{
-  style: Record<string, string | number>;
-  color: string;
-  onHoverColor: string;
-}> = ({ color, style, onHoverColor }) => {
-  const ref = useRef<SVGPathElement>(null);
-
+export const GitHub = () => {
   return (
     <svg
-      style={style}
+      className="w-6 h-6"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       xmlSpace="preserve"
-      onMouseEnter={() => {
-        if (ref.current) {
-          ref.current.style.fill = onHoverColor;
-        }
-      }}
-      onMouseLeave={() => {
-        if (ref.current) {
-          ref.current.style.fill = color;
-        }
-      }}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        fill={color}
-        ref={ref}
         d="M255.968,5.329C114.624,5.329,0,120.401,0,262.353c0,113.536,73.344,209.856,175.104,243.872
 			c12.8,2.368,17.472-5.568,17.472-12.384c0-6.112-0.224-22.272-0.352-43.712c-71.2,15.52-86.24-34.464-86.24-34.464
 			c-11.616-29.696-28.416-37.6-28.416-37.6c-23.264-15.936,1.728-15.616,1.728-15.616c25.696,1.824,39.2,26.496,39.2,26.496

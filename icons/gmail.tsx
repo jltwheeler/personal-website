@@ -1,33 +1,20 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
-export const Gmail: React.FC<{
-  style: Record<string, string | number>;
-  color: string;
-  onHoverColor: string;
-}> = ({ color, style, onHoverColor }) => {
-  const ref = useRef<SVGPathElement>(null);
-
+export const Gmail = () => {
   return (
     <svg
-      style={style}
+      className="w-6 h-6"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 250.57 250.57"
-      onMouseEnter={() => {
-        if (ref.current) {
-          ref.current.style.fill = onHoverColor;
-        }
-      }}
-      onMouseLeave={() => {
-        if (ref.current) {
-          ref.current.style.fill = color;
-        }
-      }}
+      xmlSpace="preserve"
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        fill={color}
-        ref={ref}
         d="M23.032,220.285h204.506c12.7,0,23.032-10.333,23.032-23.034V53.318c0-12.701-10.332-23.033-23.032-23.033H23.032
 	C10.332,30.285,0,40.618,0,53.318v143.933C0,209.952,10.332,220.285,23.032,220.285z M15,53.318c0-4.436,3.601-8.033,8.032-8.033
 	h204.506c4.433,0,8.032,3.597,8.032,8.033v143.933c0,4.437-3.6,8.034-8.032,8.034H23.032c-4.432,0-8.032-3.597-8.032-8.034V53.318z

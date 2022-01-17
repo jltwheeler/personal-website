@@ -1,7 +1,8 @@
-import styled from 'styled-components';
-import { ThemeProps } from '../config';
-
-export const Accent = styled.span`
-  color: ${(props: ThemeProps) => props.theme.colors.indigo11};
-  font-weight: 500;
-`;
+interface AccentProps {
+  children: React.ReactNode;
+}
+export const Accent: React.FC<AccentProps> = ({ children }) => (
+  <span className="dark:text-blue-700 text-blue-800 no-italic font-bold">
+    {children}
+  </span>
+);

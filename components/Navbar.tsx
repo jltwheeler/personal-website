@@ -1,115 +1,8 @@
-import styled, { useTheme } from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
-import { Theme, ThemeProps } from '../config';
-import { Cross, Hamburger } from '../icons';
-import { useEffect, useState } from 'react';
-
-const NavbarStyle = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  height: 5rem;
-  background-color: rgba(0, 0, 0, 0);
-  padding: 4rem 10rem 4rem 8rem;
-
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-    padding: 6rem 4rem;
-  }
-`;
-
-const NavLogo = styled.img`
-  width: 7.5rem;
-  height: 7.5rem;
-
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
-    width: 5rem;
-    height: 5rem;
-  }
-
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['s']}px) {
-    width: 6.5rem;
-    height: 6.5rem;
-  }
-`;
-
-const NavLinksContainer = styled.ul`
-  list-style: none;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
-    position: absolute;
-    right: 0;
-    height: 100vh;
-    top: 0;
-    background: ${(props: ThemeProps) => props.theme.colors.indigo1};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    transform: translateX(100%);
-    transition: transform 0.4s ease-in;
-
-    & > li {
-      margin: 3rem 0;
-      opacity: 0;
-    }
-  }
-`;
-
-const NavLink = styled.a`
-  font-size: 2rem;
-  user-select: none;
-  padding: 1.5rem;
-  position: relative;
-  margin: 0 1rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: ${(props) =>
-    props.className === 'active' ? props.theme.colors.indigo11 : 'inherit'};
-  font-weight: 300;
-  transition: all 0.3s;
-
-  @media (min-width: ${(props: ThemeProps) => props.theme.sizes['2xl']}px) {
-    font-size: 2.5rem;
-  }
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
-    font-size: 6rem;
-  }
-
-  @media (max-width: ${(props: ThemeProps) => props.theme.sizes['m']}px) {
-    font-size: 3.25rem;
-  }
-
-  &:after {
-    transition: all 0.5s;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: ${(props) => (props.className === 'active' ? '100%' : '0%')};
-    content: '.';
-    color: transparent;
-    background: ${(props: ThemeProps) => props.theme.colors.indigo11};
-    height: 1px;
-  }
-
-  &:hover {
-    color: ${(props: ThemeProps) => props.theme.colors.indigo11};
-
-    &:after {
-      width: 100%;
-    }
-  }
-`;
+import { useState, useContext } from 'react';
+import { Logo } from '../icons';
+import { Theme, ThemeContext } from '../pages/_app';
 
 const links = [
   { title: 'home', path: '/' },
@@ -119,57 +12,133 @@ const links = [
 ];
 
 export const Navbar = () => {
-  const theme = useTheme() as Theme;
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [iconPath, setIconPath] = useState('/jw-logo-dark.svg');
+  const { theme, setTheme } = useContext(ThemeContext);
   const router = useRouter();
 
-  const width = 50;
-  const height = width;
+  const isDarkMode = theme === 'dark' ? true : false;
 
-  useEffect(() => {
-    setIconPath(`${window.location.origin}/jw-logo-dark.svg`);
-  }, [iconPath]);
+  const toggleDarkMode = () => {
+    if (window !== undefined) {
+      if (theme === 'dark') {
+        window.localStorage.setItem('color-theme', Theme.LIGHT);
+        document.documentElement.classList.remove('dark');
+        setTheme(Theme.LIGHT);
+        return;
+      }
 
-  return (
-    <NavbarStyle>
-      <NavLogo src={iconPath} alt="JW Logo Dark" />
-      <Hamburger
-        navbarOpen={navbarOpen}
-        setNavbarOpen={setNavbarOpen}
-        style={{ width, height }}
-        color={theme.colors.indigo12}
-        onHoverColor={theme.colors.indigo9}
-      />
-      <NavLinksContainer
-        style={{ ...(navbarOpen && { transform: 'translateX(0%)' }) }}
-      >
-        <Cross
-          navbarOpen={navbarOpen}
-          setNavbarOpen={setNavbarOpen}
-          style={{ width, height }}
-          color={theme.colors.indigo12}
-          onHoverColor={theme.colors.indigo11}
-        />
-        {links.map((link, i) => (
-          <li
-            key={link.title}
-            style={{
-              ...(navbarOpen && {
-                animation: `linkFade 0.3s ease forwards ${i / 7 + 0.5}s`,
-              }),
-            }}
+      window.localStorage.setItem('color-theme', Theme.DARK);
+      document.documentElement.classList.add('dark');
+      setTheme(Theme.DARK);
+      return;
+    }
+  };
+
+  if (true) {
+    return (
+      <nav className="border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+        <div className="container flex flex-wrap justify-between items-center mx-auto">
+          <a href="#" className="no-underline flex">
+            <Logo theme={theme} />
+            <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">
+              Josh Wheeler
+            </span>
+          </a>
+          <button
+            data-collapse-toggle="mobile-menu"
+            type="button"
+            className="inline-flex items-center p-2 ml-3 text-sm rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="mobile-menu-2"
+            aria-expanded="false"
+            onClick={() => setNavbarOpen(!navbarOpen)}
           >
-            <Link href={`${link.path}`} passHref={true}>
-              <NavLink
-                className={router.pathname === link.path ? 'active' : ''}
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+            <svg
+              className="hidden w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <div
+            className={`${
+              navbarOpen ? '' : 'hidden'
+            } w-full md:block md:w-auto`}
+            id="mobile-menu"
+          >
+            <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+              {links.map((link) => (
+                <li
+                  key={link.title}
+                  className="flex items-center justify-center"
+                >
+                  <Link href={`${link.path}`}>
+                    {router.pathname === link.path ? (
+                      <a
+                        className="no-underline w-full text-center cursor-pointer block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                        aria-current="page"
+                      >
+                        {link.title.toUpperCase()}
+                      </a>
+                    ) : (
+                      <a className="no-underline w-full text-center cursor-pointer block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                        {link.title.toUpperCase()}
+                      </a>
+                    )}
+                  </Link>
+                </li>
+              ))}
+              <button
+                id="theme-toggle"
+                type="button"
+                className="flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+                onClick={() => toggleDarkMode()}
               >
-                {link.title}
-              </NavLink>
-            </Link>
-          </li>
-        ))}
-      </NavLinksContainer>
-    </NavbarStyle>
-  );
+                <svg
+                  id="theme-toggle-dark-icon"
+                  className={`${isDarkMode ? 'hidden' : ''} w-5 h-5`}
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg
+                  id="theme-toggle-light-icon"
+                  className={`${isDarkMode ? '' : 'hidden'} w-5 h-5`}
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 };
