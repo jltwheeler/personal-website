@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import matter from 'gray-matter';
-import marked from 'marked';
+import { marked } from 'marked';
 import prism from 'prismjs';
 import 'prismjs/components/prism-bash';
 import readingTime from 'reading-time';
@@ -26,7 +26,7 @@ const renderer = new marked.Renderer();
 // https://github.com/markedjs/marked/issues/655#issuecomment-383226346
 const linkRenderer = renderer.link;
 renderer.link = (href, title, text) => {
-  const html = linkRenderer.call(renderer, href, title, text);
+  const html = linkRenderer.call(renderer as any, href, title, text);
   if (href) {
     // Only open external links in new tabs
     if (href.slice(0, 1) !== '#')
@@ -37,7 +37,7 @@ renderer.link = (href, title, text) => {
 
 const headingRenderer = renderer.heading;
 renderer.heading = (text, level, raw, slugger) => {
-  const html = headingRenderer.call(renderer, text, level, raw, slugger);
+  const html = headingRenderer.call(renderer as any, text, level, raw, slugger);
   if ([2, 3, 4].includes(level)) {
     const regex = new RegExp(/id="([^"]+)/);
     const result = regex.exec(html);
