@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import { Container, Footer, Header, Navbar } from '../components';
+import { Card } from '../components/Card';
 
 const About = () => {
   return (
@@ -52,41 +53,30 @@ const About = () => {
 
           <div className="flex justify-center sm:flex sm:justify-start">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-4 max-w-xs bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <h5 className="mb-2 text-xl sm:text-2xl font-bold tracking-tight text-blue-700">
-                  Backend 🔚
-                </h5>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Node.js, Python, Testing,
-                  <br />
-                  System design, REST & GraphQL
-                  <br />
-                  PostgreSQL, DynamoDB, TypeORM
-                </p>
-              </div>
-
-              <div className="p-4 max-w-xs bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <h5 className="mb-2 text-xl sm:text-2xl font-bold tracking-tight text-blue-700">
-                  Frontend 🖥️
-                </h5>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  HTML, CSS / SASS, <br />
-                  JavaScript & TypeScript, <br />
-                  React (Next.js) & Redux
-                </p>
-              </div>
-
-              <div className="p-4 max-w-xs bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <h5 className="mb-2 text-xl sm:text-2xl font-bold tracking-tight text-blue-700">
-                  Cloud ☁️ & Tooling 🛠️
-                </h5>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  AWS, Serverless, Terraform, <br />
-                  Docker, Linux, GitHub Actions, <br />
-                  eslint, prettier, esbuild
-                  <br />
-                </p>
-              </div>
+              <Card
+                title="Backend 🔚"
+                body={[
+                  'Node.js, Python, Testing',
+                  'System design, REST & GraphQL',
+                  'PostgreSQL, DynamoDB',
+                ]}
+              />
+              <Card
+                title="Frontend 🖥️"
+                body={[
+                  'HTML, CSS / SASS',
+                  'JavaScript & TypeScript',
+                  'React (Next.js) & Redux',
+                ]}
+              />
+              <Card
+                title="Cloud ☁️ & Tooling 🛠️"
+                body={[
+                  'AWS, Serverless, Terraform',
+                  'Docker, Linux, GitHub Actions',
+                  'eslint, prettier, esbuild',
+                ]}
+              />
             </div>
           </div>
         </section>
