@@ -6,5 +6,5 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ title }) => {
-  return <h1 className="text-4xl text-blue-800 font-bold py-6">{title}</h1>;
+  return <h1 className="text-4xl text-blue-700 font-bold py-6">{title}</h1>;
 };

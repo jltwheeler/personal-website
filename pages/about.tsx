@@ -46,7 +46,7 @@ const About = () => {
 
         <section>
           <Link href="#primary-tech-stack" passHref={true}>
-            <h3 className="text-3xl py-8 font-bold text-blue-800">
+            <h3 className="text-3xl py-8 font-bold text-blue-700">
               My primary Tech Stack
             </h3>
           </Link>
@@ -83,7 +83,7 @@ const About = () => {
 
         <section>
           <Link href="#what-you-can-ask-me-about" passHref={true}>
-            <h3 className="text-3xl py-8 font-bold text-blue-800">
+            <h3 className="text-3xl py-8 font-bold text-blue-700">
               What You Can Ask Me About
             </h3>
           </Link>
@@ -101,7 +101,7 @@ const About = () => {
 
         <section>
           <Link href="#technologies-im-focusing-on-in-2021" passHref={true}>
-            <h3 className="text-3xl py-8 font-bold text-blue-800">
+            <h3 className="text-3xl py-8 font-bold text-blue-700">
               Technologies I&apos;m Focusing on in 2022
             </h3>
           </Link>
