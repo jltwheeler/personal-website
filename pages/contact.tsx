@@ -14,46 +14,40 @@ const Contact = () => {
         <link rel="icon" href="/jw-favicon.svg" />
       </Head>
 
-      <div className="flex flex-col justify-between h-screen">
-        <Navbar />
-        <Container>
-          <Header title="Contact" />
-          <p>Thanks for your interest in getting in touch!</p>
-          <br />
-          <p>
-            The best way to reach me is by emailing me at{' '}
-            <a
-              target="_blank"
-              href="mailto:hi@joshwheeler.tech"
-              rel="noreferrer"
-            >
-              hi@joshwheeler.tech
-            </a>
-          </p>
-          <br />
-
-          <p>
-            Also please feel free to get in touch on social media. The main
-            platforms I use are{' '}
-            <a
-              href="https://github.com/jltwheeler"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub{' '}
-            </a>
-            and
-            <a
-              href="https://www.linkedin.com/in/joshuawheeler93/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {' '}
-              LinkedIn
-            </a>
-            .
-          </p>
-        </Container>
+      <Navbar />
+      <Container>
+        <Header title="Contact" />
+        <p>
+          Thanks for your interest in getting in touch! The best way to reach me
+          is by emailing me at{' '}
+          <a target="_blank" href="mailto:hi@joshwheeler.tech" rel="noreferrer">
+            hi@joshwheeler.tech
+          </a>
+        </p>
+        <br />
+        <p>
+          Also please feel free to get in touch on social media. The main
+          platforms I use are{' '}
+          <a
+            href="https://github.com/jltwheeler"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub{' '}
+          </a>
+          and
+          <a
+            href="https://www.linkedin.com/in/joshuawheeler93/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {' '}
+            LinkedIn
+          </a>
+          .
+        </p>
+      </Container>
+      <div className="w-full absolute bottom-0">
         <Footer />
       </div>
     </>

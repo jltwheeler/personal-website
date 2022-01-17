@@ -27,7 +27,8 @@ export const Card: React.FC<CardProps> = ({
     <h5 className="mb-2 text-xl sm:text-2xl font-bold tracking-tight text-blue-600">
       {title}
     </h5>
-    <span className="text-gray-600 italic text-sm">{subtext}</span>
+
+    {subtext && <span className="text-gray-600 italic text-sm">{subtext}</span>}
     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
       {Array.isArray(body)
         ? body.map((line) => (
