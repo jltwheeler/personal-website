@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 
 import { Container, Footer, Header, Navbar } from '../components';
 
