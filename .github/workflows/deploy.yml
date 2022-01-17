@@ -19,7 +19,7 @@ jobs:
       - name: 💚 Use node
         uses: actions/setup-node@v2
         with:
-          node-version: 'v12.19.X'
+          node-version: 'v16.10.X'
 
       - name: 📦 install deps
         run: npm ci
