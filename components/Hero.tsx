@@ -24,7 +24,7 @@ export const Hero = () => {
         <Link href="/blog" passHref>
           <button
             type="button"
-            className="text-white bg-blue-800 hover:bg-blue-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+            className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
           >
             Read Blog
           </button>

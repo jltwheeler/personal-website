@@ -38,12 +38,14 @@ export const Navbar = () => {
     return (
       <nav className="border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
-          <a href="#" className="no-underline flex">
-            <Logo theme={theme} />
-            <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">
-              Josh Wheeler
-            </span>
-          </a>
+          <Link href="/">
+            <a className="no-underline flex">
+              <Logo theme={theme} />
+              <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">
+                Josh Wheeler
+              </span>
+            </a>
+          </Link>
           <button
             data-collapse-toggle="mobile-menu"
             type="button"
