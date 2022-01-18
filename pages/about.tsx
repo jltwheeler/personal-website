@@ -1,10 +1,13 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import React from 'react';
 
 import { Container, Footer, Header, Navbar } from '../components';
 import { Card } from '../components/Card';
+import { useFixedNavbar } from '../hooks';
 
 const About = () => {
+  useFixedNavbar();
   return (
     <>
       <Head>
