@@ -107,13 +107,8 @@ const BlogMeta: React.FC<BlogMetaProps> = ({ readTime, description, date }) => {
   return (
     <div className="blog-meta">
       <h3>{description}</h3>
-      <div className="flex">
-        <div>
-          <i>Published by Josh Wheeler</i>
-        </div>
-        <div>
-          <i>{`${date} • ${readTime}`}</i>
-        </div>
+      <div className="text-sm">
+        <i>Published by Josh Wheeler {`${date} • ${readTime}`}</i>
       </div>
     </div>
   );
@@ -140,8 +135,8 @@ const Post: React.FC<PostProps> = ({ content, data }) => {
           description={data.description}
           date={data.date}
         />
-        <div
-          className="blog-page"
+        <article
+          className="prose dark:prose-invert prose-img:w-full prose-img:mx-auto prose-h2:text-blue-600 prose-h3:text-blue-600 prose-h4:text-blue-600 prose-a:text-blue-600 prose-a:no-underline"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </Container>
