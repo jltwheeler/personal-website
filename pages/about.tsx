@@ -18,7 +18,7 @@ const About = () => {
 
       <Navbar />
       <Container>
-        <Header title="About Me" />
+        <Header title="About me" />
         <article className="prose dark:prose-invert prose-a:text-blue-600">
           <section className="text-base sm:text-lg">
             <p>
@@ -48,7 +48,7 @@ const About = () => {
           <section>
             <Link href="#primary-tech-stack" passHref={true}>
               <h3 className="text-3xl font-bold text-blue-600">
-                My primary Tech Stack
+                My primary tech stack
               </h3>
             </Link>
 
@@ -85,7 +85,7 @@ const About = () => {
           <section>
             <Link href="#what-you-can-ask-me-about" passHref={true}>
               <h3 className="text-3xl font-bold text-blue-600">
-                What You Can Ask Me About
+                What you can ask me about
               </h3>
             </Link>
             <ul className="list-disc pl-8">
@@ -103,7 +103,7 @@ const About = () => {
           <section>
             <Link href="#technologies-im-focusing-on-in-2021" passHref={true}>
               <h3 className="text-3xl font-bold text-blue-600">
-                Technologies I&apos;m Focusing on in 2022
+                Technologies I&apos;m focusing on in 2022
               </h3>
             </Link>
             <ul className="list-disc pl-8">

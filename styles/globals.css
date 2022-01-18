@@ -22,10 +22,6 @@ ul {
   @apply dark:text-white text-gray-800 py-2;
 }
 
-.content {
-  padding: 16px;
-}
-
 .sticky {
   position: fixed;
   top: 0;
@@ -34,4 +30,10 @@ ul {
 
 .sticky + .content {
   padding-top: 60px;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
 }
