@@ -283,5 +283,5 @@ pre[class*='language-'] > code[class*='language-'] {
   z-index: 0;
   pointer-events: none;
   line-height: inherit;
-  white-space: pre;
+  white-space: pre-line;
 }
