@@ -8,6 +8,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { Container, Footer, Header, Navbar } from '../../components';
+import { useFixedNavbar } from '../../hooks';
 
 // Add prismjs syntax highlighting
 marked.setOptions({
@@ -115,6 +116,7 @@ const BlogMeta: React.FC<BlogMetaProps> = ({ readTime, description, date }) => {
 };
 
 const Post: React.FC<PostProps> = ({ content, data }) => {
+  useFixedNavbar();
   return (
     <>
       <Head>

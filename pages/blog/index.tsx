@@ -6,6 +6,7 @@ import readingTime from 'reading-time';
 
 import { Card, Container, Footer, Header, Navbar } from '../../components';
 import { BlogMetaData } from './[slug]';
+import { useFixedNavbar } from '../../hooks';
 
 interface Blog extends BlogMetaData {
   slug: string;
@@ -33,6 +34,7 @@ export const getStaticProps = async () => {
 };
 
 const Blog: React.FC<BlogProps> = ({ blogs }) => {
+  useFixedNavbar();
   return (
     <>
       <Head>

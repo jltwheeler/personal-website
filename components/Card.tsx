@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import React from 'react';
 
 interface CardProps {
   title: string;
@@ -31,11 +32,11 @@ export const Card: React.FC<CardProps> = ({
     {subtext && <span className="text-gray-600 italic text-sm">{subtext}</span>}
     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
       {Array.isArray(body)
-        ? body.map((line) => (
-            <>
+        ? body.map((line, idx) => (
+            <React.Fragment key={idx}>
               {line}
               <br />
-            </>
+            </React.Fragment>
           ))
         : body}
     </p>

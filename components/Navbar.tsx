@@ -36,7 +36,10 @@ export const Navbar = () => {
 
   if (true) {
     return (
-      <nav className="border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+      <nav
+        id="navbar"
+        className="border-gray-200 px-2 sm:px-4 py-2.5 bg-slate-100 dark:bg-gray-900"
+      >
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <Link href="/">
             <a className="no-underline flex">
